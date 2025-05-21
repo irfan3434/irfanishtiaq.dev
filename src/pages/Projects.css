@@ -73,6 +73,9 @@ body.dark-mode .section-subtitle {
     color: var(--hero-dark-accent);
 }
 
+
+
+
 .projects-title {
     font-size: 2.6rem;
     font-weight: 700;
@@ -81,6 +84,11 @@ body.dark-mode .section-subtitle {
     position: relative;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+body.dark-mode .projects-title {
+     color: #f9f9f9;
+}
+
 
 .section-line {
     height: 4px;
