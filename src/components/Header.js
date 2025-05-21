@@ -88,20 +88,6 @@ const Header = () => {
     }
   }, [darkMode]);
   
-  // To add an extra interactive element, you can implement a header easter egg:
-  // In your logo component:
-  const [clickCount, setClickCount] = useState(0);
-  
-  const handleLogoClick = (e) => {
-    e.preventDefault();
-    setClickCount(count => count + 1);
-    
-    if (clickCount === 4) {
-      // Trigger an easter egg animation or message
-      alert("You found the secret! 🎉");
-      setClickCount(0);
-    }
-  };
   
   useEffect(() => {
     if (isMenuOpen) {
@@ -130,7 +116,7 @@ const Header = () => {
       <div className="header-container">
         {/* Logo Area */}
         <div className="logo">
-          <NavLink to="/" onClick={handleLogoClick} className="logo-link">
+          <NavLink to="/" className="logo-link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="logo-icon">
               <Terminal size={24} />
             </span>
