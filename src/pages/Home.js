@@ -243,7 +243,7 @@ const HeroSection = () => {
             </div>
             <div className="stat-card">
               <div className="stat-number">12+</div>
-              <div className="stat-label">Happy Clients</div>
+              <div className="stat-label">Clients</div>
             </div>
           </div>
         </div>
