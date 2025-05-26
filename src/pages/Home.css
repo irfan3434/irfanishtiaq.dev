@@ -859,8 +859,13 @@ body.dark-mode .stat-label {
     padding: 3rem 1.5rem;
   }
 
+  .stats-grid { 
+    place-items: center;
+  }
+
   .stat-card {
-    padding: 1.5rem;
+    padding: 0.5rem;
+    width: 315px;
   }
 
   .stat-number {
