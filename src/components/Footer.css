@@ -1,7 +1,7 @@
 /* Footer.css - Enhanced Styling */
 :root {
   /* Light Mode Variables */
-  --footer-bg: #f4f7f6;
+  --footer-bg: #f6fcff;
   --footer-text: #333;
   --footer-text-light: #666;
   --footer-link: #124e66;
@@ -91,7 +91,7 @@
   padding-top: 0.75rem;
   border: 1px solid var(--footer-border);
   padding-bottom: 0.75rem;
-  background: linear-gradient(135deg, rgba(49,137,135,0.05), rgba(0,0,0,0.02));
+  background: white;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
   border-radius: 0.5rem;
 }
@@ -233,7 +233,7 @@
 /* Developer Thoughts */
 .footer-thoughts {
   position: relative;
-  background: linear-gradient(135deg, rgba(49,137,135,0.05), rgba(0,0,0,0.02));
+  background: white;
   padding: 2.5rem 2rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--footer-border);
@@ -342,7 +342,7 @@
   border: 1px solid var(--footer-border);
   border-radius: var(--border-radius);
   padding: 2.5rem 1rem;
-  background: linear-gradient(135deg, rgba(49,137,135,0.05), rgba(0,0,0,0.02));
+  background: white;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
 }
 
