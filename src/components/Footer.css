@@ -36,6 +36,7 @@
 .footer.dark-mode {
   background-color: var(--footer-dark-bg);
   color: var(--footer-dark-text);
+  border-top: 1px solid #ffffff1a;
 }
 
 .footer-content {
@@ -69,6 +70,7 @@
 
 .footer.dark-mode .footer-branding {
   background: linear-gradient(135deg,#ffffff0a,#ffffff03);
+  border: 1px solid var(--footer-dark-border);
 }
 
 .footer-logo {
