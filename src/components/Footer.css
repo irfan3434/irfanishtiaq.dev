@@ -60,13 +60,14 @@
   border-radius: var(--border-radius);
   box-shadow: 0 12px 28px #0000000f;
   max-width: 800px;
-  padding: 2.5rem 2rem;
-    position: relative;
-    text-align: center;
+  padding: 1.0rem 2rem;
+  position: relative;
+  text-align: center;
+  height: 320px;
 }
 
 .footer-logo {
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   color: var(--footer-link);
   transition: transform var(--transition-speed) ease;
 }
@@ -353,6 +354,7 @@
 
 /* Contact Section */
 .footer-contact {
+  animation: fadeInThoughts .8s ease forwards;
   text-align: center;
   border: 1px solid var(--footer-border);
   border-radius: var(--border-radius);
