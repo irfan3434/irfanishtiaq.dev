@@ -9,13 +9,13 @@
   /* Form elements */
   --contact-input-bg: #ffffff;
   --contact-input-border: #e2e8f0;
-  --contact-input-focus: #318987;
+  --contact-input-focus: #2181a7
   --contact-label: #64748b;
-  
+   
   /* Accent colors */
-  --contact-accent: #318987;
+  --contact-accent: #124e66;
   --contact-accent-light: rgba(49, 137, 135, 0.1);
-  --contact-button-bg: #318987;
+  --contact-button-bg: #124e66;
 
   --contact-button-text: white;
   --contact-border: rgba(0, 0, 0, 0.06);
@@ -26,7 +26,7 @@
   --card-highlight: rgba(49, 137, 135, 0.1);
   
   /* Status colors */
-  --success-color: #10b981;
+  --success-color: #279ac7;
   --success-bg: rgba(16, 185, 129, 0.1);
   --error-color: #ef4444;
   --error-bg: rgba(239, 68, 68, 0.1);

@@ -3,8 +3,8 @@
     --about-text: #333;
     --about-heading: #222;
     --about-subtext: #666;
-    --about-highlight: #318987;
-    --about-accent: #4dabab;
+    --about-highlight: #2181a7;
+    --about-accent: #2181a7;
     --about-card-bg: #f4f7f6;
     --about-card-border: rgba(0, 0, 0, 0.1);
     --about-muted: #888;
@@ -142,7 +142,7 @@
   .tab-btn.active {
     background-color: var(--about-highlight);
     color: white;
-    box-shadow: 0 4px 12px rgba(49, 137, 135, 0.2);
+    box-shadow: 0 4px 12px rgba(18, 78, 102, 0.3);
     width: 138px;
   }
   
@@ -231,7 +231,7 @@
   
   .timeline-marker.current {
     background-color: var(--about-accent);
-    box-shadow: 0 0 0 4px rgba(49, 137, 135, 0.2);
+    box-shadow: 0 0 0 4px rgba(18, 78, 102, 0.3);
   }
   
   body.dark-mode .timeline-marker {
@@ -241,7 +241,7 @@
   
   body.dark-mode .timeline-marker.current {
     background-color: var(--about-dark-accent);
-    box-shadow: 0 0 0 4px rgba(49, 137, 135, 0.3);
+    box-shadow: 0 0 0 4px rgba(18, 78, 102, 0.3);
   }
   
   .job-item {
@@ -288,13 +288,13 @@
     font-weight: 500;
     font-size: 0.9rem;
     padding: 0.25rem 0.75rem;
-    background-color: rgba(49, 137, 135, 0.1);
+    background-color: rgba(71, 144, 173, 0.3);
     border-radius: 20px;
   }
   
   body.dark-mode .job-date {
     color: var(--about-dark-accent);
-    background-color: rgba(92, 204, 202, 0.1);
+    background-color: rgba(71, 144, 173, 0.3);
   }
   
   .job-company {
@@ -386,7 +386,7 @@
   
   body.dark-mode .edu-icon {
     color: var(--about-dark-accent);
-    background-color: rgba(92, 204, 202, 0.1);
+    background-color: rgba(71, 144, 173, 0.3);
   }
   
   .edu-content h3 {
@@ -407,7 +407,7 @@
     color: var(--about-highlight);
     margin-bottom: 1rem;
     padding: 0.2rem 0.75rem;
-    background-color: rgba(49, 137, 135, 0.1);
+    background-color: rgba(71, 144, 173, 0.3);
     border-radius: 20px;
   }
   
@@ -423,7 +423,7 @@
   
   body.dark-mode .edu-date {
     color: var(--about-dark-accent);
-    background-color: rgba(92, 204, 202, 0.1);
+    background-color: rgba(82, 163, 196, 0.3);
   }
   
   body.dark-mode .edu-desc {
@@ -541,7 +541,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(49, 137, 135, 0.75);
+    background-color: rgba(27, 120, 156, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -550,7 +550,7 @@
   }
   
   body.dark-mode .cert-overlay {
-    background-color: rgba(92, 204, 202, 0.75);
+    background-color: rgba(27, 120, 156, 0.7);
   }
   
   .view-cert {

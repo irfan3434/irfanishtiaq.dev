@@ -3,7 +3,7 @@
   --hero-bg: #ffffff;
   --hero-text: #222;
   --hero-subtext: #666;
-  --hero-accent: #318987;
+  --hero-accent: #124e66;
   --hero-button-text: #ffffff;
   --hero-secondary-bg: #f0f7f7;
   --hero-border: #e6e6e6;
@@ -133,7 +133,7 @@
 }
 
 .hero-shape-1 {
-  background-color: rgba(49, 137, 135, 0.15);
+  background-color: rgba(18, 78, 102, 0.3);
   width: 400px;
   height: 400px;
   top: -100px;
@@ -141,7 +141,7 @@
 }
 
 .hero-shape-2 {
-  background-color: rgba(49, 137, 135, 0.1);
+  background-color: rgba(18, 78, 102, 0.3);
   width: 300px;
   height: 300px;
   bottom: -50px;
@@ -149,7 +149,7 @@
 }
 
 .hero-shape-3 {
-  background-color: rgba(49, 137, 135, 0.07);
+  background-color: rgba(18, 78, 102, 0.3);
   width: 200px;
   height: 200px;
   top: 50%;
@@ -227,7 +227,7 @@ body.dark-mode .hero-section {
   position: absolute;
   width: 330px;
   height: 330px;
-  background: linear-gradient(45deg, rgba(49, 137, 135, 0.15), rgba(49, 137, 135, 0.05));
+  background: linear-gradient(45deg, rgba(18, 78, 102, 0.3), rgba(18, 78, 102, 0.05));
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   animation: blobAnimation 8s linear infinite;
   z-index: -1;

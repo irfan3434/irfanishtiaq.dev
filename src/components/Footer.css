@@ -4,8 +4,8 @@
   --footer-bg: #f4f7f6;
   --footer-text: #333;
   --footer-text-light: #666;
-  --footer-link: #318987;
-  --footer-link-hover: #318987;
+  --footer-link: #124e66;
+  --footer-link-hover: #124e66;
   --footer-border: rgba(0, 0, 0, 0.1);
   --footer-light-button-text: #f4f7f6;
   
@@ -141,7 +141,7 @@
 }
 
 .role-icon {
-  color: #318987; /* blue-500 */
+  color: #124e66; /* blue-500 */
   margin-right: 0.375rem;
 }
 
