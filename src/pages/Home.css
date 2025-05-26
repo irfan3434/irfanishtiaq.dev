@@ -5,7 +5,7 @@
   --hero-subtext: #666;
   --hero-accent: #124e66;
   --hero-button-text: #ffffff;
-  --hero-secondary-bg: #f0f7f7;
+  --hero-secondary-bg: #f6fcff;
   --hero-border: #e6e6e6;
   --hero-shadow: rgba(49, 137, 135, 0.2);
 
@@ -133,7 +133,7 @@
 }
 
 .hero-shape-1 {
-  background-color: rgba(18, 78, 102, 0.3);
+  background-color: rgba(18, 78, 102, 0.07);
   width: 400px;
   height: 400px;
   top: -100px;
@@ -141,7 +141,7 @@
 }
 
 .hero-shape-2 {
-  background-color: rgba(18, 78, 102, 0.3);
+  background-color: rgba(18, 78, 102, 0.07);
   width: 300px;
   height: 300px;
   bottom: -50px;
@@ -149,7 +149,7 @@
 }
 
 .hero-shape-3 {
-  background-color: rgba(18, 78, 102, 0.3);
+  background-color: rgba(18, 78, 102, 0.075);
   width: 200px;
   height: 200px;
   top: 50%;
@@ -581,7 +581,7 @@ body.dark-mode .tech-item:hover {
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--hero-accent), rgba(49, 137, 135, 0.7));
+  background: linear-gradient(135deg, var(--hero-accent), #124e6657);
   color: white;
   margin-bottom: 20px;
 }
