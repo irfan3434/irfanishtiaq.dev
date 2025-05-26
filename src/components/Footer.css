@@ -63,7 +63,7 @@
   padding: 1.0rem 2rem;
   position: relative;
   text-align: center;
-  height: 320px;
+  height: 305px;
 }
 
 .footer-logo {
@@ -90,7 +90,7 @@
 }
 
 .footer-title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
@@ -250,7 +250,7 @@
 .footer-thoughts {
   position: relative;
   background: white;
-  padding: 2.5rem 2rem;
+  padding: 3rem 2rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--footer-border);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
@@ -280,7 +280,7 @@
 .footer-thoughts-title {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: 1px;
   color: var(--footer-text);
   text-transform: uppercase;
@@ -358,7 +358,7 @@
   text-align: center;
   border: 1px solid var(--footer-border);
   border-radius: var(--border-radius);
-  padding: 2.5rem 1rem;
+  padding: 3rem 1rem;
   background: white;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
 }
