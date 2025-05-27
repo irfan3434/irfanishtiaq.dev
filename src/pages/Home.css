@@ -581,7 +581,7 @@ body.dark-mode .tech-item:hover {
   width: 60px;
   height: 60px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--hero-accent), #124e6657);
+  background:  #124e66;
   color: white;
   margin-bottom: 20px;
 }
