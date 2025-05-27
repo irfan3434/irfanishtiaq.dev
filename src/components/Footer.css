@@ -715,6 +715,10 @@
     padding: 0 0.5rem;
   }
 
+  .role-text {
+    font-size: 0.75rem;
+  }
+
   .footer-thoughts-title {
     margin-bottom: 1rem;
   }
