@@ -65,7 +65,7 @@
   padding: 1.0rem 2rem;
   position: relative;
   text-align: center;
-  height: 305px;
+  height: 310px;
 }
 
 .footer.dark-mode .footer-branding {
@@ -687,7 +687,7 @@
   }
 
 
-   .footer-social li:nth-child(1) .footer-social-link:hover,
+  .footer-social li:nth-child(1) .footer-social-link:hover,
   .footer-social li:nth-child(2) .footer-social-link:hover,
   .footer-social li:nth-child(3) .footer-social-link:hover,
   .footer-social li:nth-child(4) .footer-social-link:hover {
@@ -709,6 +709,10 @@
     height: 150px;
     width: 315px;
 
+  }
+
+  .roles-wrapper {
+    padding: 0 0.5rem;
   }
 
   .footer-thoughts-title {
