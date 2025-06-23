@@ -161,7 +161,7 @@ body.dark-mode .view-toggle-btn.active {
 /* Project Grid Styles */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
@@ -204,7 +204,7 @@ body.dark-mode .project-number {
 
 .project-image-container {
     position: relative;
-    height: 220px;
+    height: 300px;
     overflow: hidden;
 }
 

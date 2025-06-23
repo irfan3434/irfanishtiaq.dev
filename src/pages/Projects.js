@@ -46,20 +46,20 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'FCECO – Sustainable Energy',
-      url: 'https://www.fceco.sa',
-      image: proImage2,
-      description: 'Website for FCECO sustainable energy services, built with a custom Shopify theme focusing on clarity, performance, and visual impact to highlight their green initiatives.',
-      challenge: 'Communicating complex energy services visually while maintaining an engaging user experience that drives conversion and inquiry.',
-      solution: 'Designed an interactive service exploration system with animated data visualizations and intuitive navigation flow that guides users from awareness to contact.',
+      title: 'Future Code – Events & Innovation',
+      url: 'https://www.futurecode.sa',
+      image: proImage4,
+      description: 'Leading the way in innovative exhibitions, conferences, and event management solutions across Saudi Arabia, built with React for dynamic user experiences.',
+      challenge: 'Developing a comprehensive platform that showcases Future Code\'s expertise in event management while providing seamless navigation through their diverse service offerings and portfolio of successful events.',
+      solution: 'Built a modern React-based single-page application with smooth animations, interactive components, and optimized performance to effectively communicate their innovative approach to event management in Saudi Arabia.',
       features: [
+        'React-based single-page application',
+        'Dynamic event portfolio showcase',
         'Interactive service exploration',
-        'Case study presentation system',
-        'Animated data visualizations',
-        'Custom contact forms with validation'
+        'Mobile-first responsive design'
       ],
-      stack: ['Shopify', 'Liquid', 'Responsive Design', 'JavaScript', 'CSS3', 'HTML5' ],
-      color: '#29b7cf'
+      stack: ['React', 'JavaScript ES6+', 'CSS3', 'HTML5', 'Responsive Design', 'REST API'],
+      color: '#8B5CF6'
     },
     {
       id: 3,
@@ -80,20 +80,20 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Future Code – Events & Innovation',
-      url: 'https://www.futurecode.sa',
-      image: proImage4,
-      description: 'Leading the way in innovative exhibitions, conferences, and event management solutions across Saudi Arabia, built with React for dynamic user experiences.',
-      challenge: 'Developing a comprehensive platform that showcases Future Code\'s expertise in event management while providing seamless navigation through their diverse service offerings and portfolio of successful events.',
-      solution: 'Built a modern React-based single-page application with smooth animations, interactive components, and optimized performance to effectively communicate their innovative approach to event management in Saudi Arabia.',
+      title: 'FCECO – Sustainable Energy',
+      url: 'https://www.fceco.sa',
+      image: proImage2,
+      description: 'Website for FCECO sustainable energy services, built with a custom Shopify theme focusing on clarity, performance, and visual impact to highlight their green initiatives.',
+      challenge: 'Communicating complex energy services visually while maintaining an engaging user experience that drives conversion and inquiry.',
+      solution: 'Designed an interactive service exploration system with animated data visualizations and intuitive navigation flow that guides users from awareness to contact.',
       features: [
-        'React-based single-page application',
-        'Dynamic event portfolio showcase',
         'Interactive service exploration',
-        'Mobile-first responsive design'
+        'Case study presentation system',
+        'Animated data visualizations',
+        'Custom contact forms with validation'
       ],
-      stack: ['React', 'JavaScript ES6+', 'CSS3', 'HTML5', 'Responsive Design', 'REST API'],
-      color: '#8B5CF6'
+      stack: ['Shopify', 'Liquid', 'Responsive Design', 'JavaScript', 'CSS3', 'HTML5' ],
+      color: '#29b7cf'
     }
   ];
 
