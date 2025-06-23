@@ -397,7 +397,7 @@ body.dark-mode .showcase-description {
 
 .showcase-action {
     position: absolute;
-    right: 1.5rem;
+    right: 4rem;
     top: 50%;
     transform: translateY(-50%);
     opacity: 0;

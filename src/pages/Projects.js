@@ -1,11 +1,12 @@
-// Projects.js - Enhanced 3D Portfolio Display
+// Projects.js - Enhanced 3D Portfolio Display with Future Code Project
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import './Projects.css';
-import  proImage1 from '../assets/fcec-preview.png'
-import  proImage2 from '../assets/fceco-preview.png'
-import  proImage3 from '../assets/aqeaw-preview.png'
+import proImage1 from '../assets/fcec-preview.png'
+import proImage2 from '../assets/fceco-preview.png'
+import proImage3 from '../assets/aqeaw-preview.png'
+import proImage4 from '../assets/futureCode-preview.png' // Add this new import
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -30,7 +31,7 @@ const Projects = () => {
       id: 1,
       title: 'FCEC – Engineering Consultations',
       url: 'https://www.fcec.sa',
-      image: proImage1, // Update with your actual image path
+      image: proImage1,
       description: 'Corporate website for Future Cities for Engineering Consultations featuring multilingual support, responsive layout, and a custom theme to showcase their engineering expertise.',
       challenge: 'Creating a bilingual interface that maintains professional branding across both Arabic and English with right-to-left support while ensuring optimal performance.',
       solution: 'Developed a custom Shopify theme with language detection and dynamic content rendering, implementing performance optimizations for fast page loads across all devices.',
@@ -47,7 +48,7 @@ const Projects = () => {
       id: 2,
       title: 'FCECO – Sustainable Energy',
       url: 'https://www.fceco.sa',
-      image: proImage2, // Update with your actual image path
+      image: proImage2,
       description: 'Website for FCECO sustainable energy services, built with a custom Shopify theme focusing on clarity, performance, and visual impact to highlight their green initiatives.',
       challenge: 'Communicating complex energy services visually while maintaining an engaging user experience that drives conversion and inquiry.',
       solution: 'Designed an interactive service exploration system with animated data visualizations and intuitive navigation flow that guides users from awareness to contact.',
@@ -64,7 +65,7 @@ const Projects = () => {
       id: 3,
       title: 'AQEAW – Architectural Excellence',
       url: 'https://www.aqeaw.com',
-      image: proImage3, // Update with your actual image path
+      image: proImage3,
       description: 'Architectural showcase site with a clean interface, developed for AQEAW with pixel-perfect frontend work and customized components to highlight their design expertise.',
       challenge: 'Creating a visually stunning portfolio that showcases architectural projects without overwhelming visitors, while ensuring optimal performance with large image assets.',
       solution: 'Implemented a lazy-loaded image gallery with progressive loading and WebP format conversion, along with smooth scroll animations for an immersive viewing experience.',
@@ -76,6 +77,23 @@ const Projects = () => {
       ],
       stack: ['HTML5', 'CSS3', 'JavaScript', 'Shopify', 'Responsive Design', 'JSON'],
       color: '#ddb20a'
+    },
+    {
+      id: 4,
+      title: 'Future Code – Events & Innovation',
+      url: 'https://www.futurecode.sa',
+      image: proImage4,
+      description: 'Leading the way in innovative exhibitions, conferences, and event management solutions across Saudi Arabia, built with React for dynamic user experiences.',
+      challenge: 'Developing a comprehensive platform that showcases Future Code\'s expertise in event management while providing seamless navigation through their diverse service offerings and portfolio of successful events.',
+      solution: 'Built a modern React-based single-page application with smooth animations, interactive components, and optimized performance to effectively communicate their innovative approach to event management in Saudi Arabia.',
+      features: [
+        'React-based single-page application',
+        'Dynamic event portfolio showcase',
+        'Interactive service exploration',
+        'Mobile-first responsive design'
+      ],
+      stack: ['React', 'JavaScript ES6+', 'CSS3', 'HTML5', 'Responsive Design', 'REST API'],
+      color: '#8B5CF6'
     }
   ];
 
