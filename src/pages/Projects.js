@@ -51,9 +51,9 @@ const Projects = () => {
       image: proImage4,
       description: 'Leading the way in innovative exhibitions, conferences, and event management solutions across Saudi Arabia, built with React for dynamic user experiences.',
       challenge: 'Developing a comprehensive platform that showcases Future Code\'s expertise in event management while providing seamless navigation through their diverse service offerings and portfolio of successful events.',
-      solution: 'Built a modern React-based single-page application with smooth animations, interactive components, and optimized performance to effectively communicate their innovative approach to event management in Saudi Arabia.',
+      solution: 'Built a modern React-based multi-page application with smooth animations, interactive components, and optimized performance to effectively communicate their innovative approach to event management in Saudi Arabia.',
       features: [
-        'React-based single-page application',
+        'React-based multi-page application',
         'Dynamic event portfolio showcase',
         'Interactive service exploration',
         'Mobile-first responsive design'
