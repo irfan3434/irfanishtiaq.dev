@@ -7,6 +7,7 @@ import proImage1 from '../assets/fcec-preview.png'
 import proImage2 from '../assets/fceco-preview.png'
 import proImage3 from '../assets/aqeaw-preview.png'
 import proImage4 from '../assets/futureCode-preview.png' // Add this new import
+import proImage5 from '../assets/kheir-fragrances.png'
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -94,6 +95,23 @@ const Projects = () => {
       ],
       stack: ['Shopify', 'Liquid', 'Responsive Design', 'JavaScript', 'CSS3', 'HTML5' ],
       color: '#29b7cf'
+    },
+    {
+      id: 5,
+      title: 'Kheir Fragrances – Luxury Perfume House',
+      url: 'https://kheirfragrances.com/',
+      image: proImage5,
+      description: 'Luxury perfume brand website blending Middle Eastern heritage with French craftsmanship, developed to evoke elegance and sensory allure through refined visuals and polished UX.',
+      challenge: 'Crafting an online experience that reflects the luxury essence of the brand while optimizing performance for high-resolution visuals and international accessibility.',
+      solution: 'Built a minimalist yet luxurious interface with scroll-triggered transitions, optimized product imagery, and fragrance storytelling through elegant layout and motion design.',
+      features: [
+        'High-resolution product showcase',
+        'Smooth scroll and parallax effects',
+        'Localized performance optimization',
+        'Story-driven fragrance presentation'
+      ],
+      stack: ['HTML5', 'CSS3', 'JavaScript', 'Shopify', 'Liquid', 'Responsive Design'],
+      color: '#a9beb3'
     }
   ];
 
