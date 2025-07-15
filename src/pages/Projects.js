@@ -3,11 +3,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import './Projects.css';
-import proImage1 from '../assets/fcec-preview.png'
+import proImage1 from '../assets/fcec4.webp'
 import proImage2 from '../assets/fceco-preview.png'
-import proImage3 from '../assets/aqeaw-preview.png'
-import proImage4 from '../assets/futureCode-preview.png' // Add this new import
-import proImage5 from '../assets/kheir-fragrances.png'
+import proImage3 from '../assets/aqeaw 5.webp'
+import proImage4 from '../assets/futurecode3.webp' // Add this new import
+import proImage5 from '../assets/kf10.png'
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
