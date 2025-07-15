@@ -3,19 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, Briefcase, Award, Globe, Code, Star, X } from 'lucide-react';
 import './About.css';
 
-import Image11 from '../assets/BSDegree.png';
-import Image22 from '../assets/MSDegree.png';
-import Image33 from '../assets/IELTS.png';
-import Image1 from '../assets/Kreativstorm.png';
-import Image2 from '../assets/Crewlogix.png';
-import Image3 from '../assets/TEXOL.png';
-import Image4 from '../assets/JohnHopkins.png';
-import Image5 from '../assets/META.png';
-import Image6 from '../assets/Codecademy1.png';
-import Image7 from '../assets/Codecademy2.png';
-import Image8 from '../assets/freeCodeCamp1.png';
-import Image9 from '../assets/freeCodeCamp2.png';
-import Image10 from '../assets/HackerRank.png';
+import Image11 from '../assets/BSDegree.webp';
+import Image22 from '../assets/MSDegree.webp';
+import Image33 from '../assets/IELTS.webp';
+import Image1 from '../assets/Kreativstorm.webp';
+import Image2 from '../assets/Crewlogix.webp';
+import Image3 from '../assets/TEXOL.webp';
+import Image4 from '../assets/JohnHopkins.webp';
+import Image5 from '../assets/META.webp';
+import Image6 from '../assets/Codecademy1.webp';
+import Image7 from '../assets/Codecademy2.webp';
+import Image8 from '../assets/freeCodeCamp1.webp';
+import Image9 from '../assets/freeCodeCamp2.webp';
+import Image10 from '../assets/HackerRank.webp';
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('experience');
