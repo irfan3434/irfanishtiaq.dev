@@ -136,6 +136,7 @@ const Contact = () => {
               <div className="info-details">
                 <h3>Email</h3>
                 <a href="mailto:irfanishtiaq2k10@gmail.com">irfanishtiaq2k10@gmail.com</a>
+                <a href="mailto:irfanbajwa34@gmail.com">irfanbajwa34@gmail.com</a>
               </div>
             </div>
             
@@ -155,7 +156,7 @@ const Contact = () => {
               </div>
               <div className="info-details">
                 <h3>Available For</h3>
-                <p>Remote & Freelance Opportunities <ExternalLink size={14} /></p>
+                <p>Full Time, Part Time, Remote & Freelance Opportunities</p>
               </div>
             </div>
           </div>
