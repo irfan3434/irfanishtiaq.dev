@@ -39,9 +39,9 @@ const SkillsSection = () => {
     { id: 'all', label: 'All Skills' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'backend', label: 'Backend' },
-    { id: 'testing', label: 'Testing & Optimization' },
+    { id: 'testing', label: 'Testing' },
     { id: 'tools', label: 'Tools' },
-    { id: 'softskills', label: 'Soft Skills & Consulting' },
+    { id: 'softskills', label: 'Soft Skills' },
 
   ];
 
