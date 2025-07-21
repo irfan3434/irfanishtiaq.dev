@@ -139,7 +139,7 @@ const About = () => {
     setModalOpen(false);
     setTimeout(() => setSelectedCertificate(null), 300);
   };
-
+ 
   const skills = [
     { name: "HTML5", level: 95 },
     { name: "CSS", level: 95 },
@@ -344,10 +344,10 @@ const About = () => {
             <div className="skills-section">
               <h2><Code size={20} /> Technical Proficiencies</h2>
               
-              <div className="skills-grid">
+              <div className="about-skills-grid">
                 {skills.map((skill, index) => (
-                  <div className="skill-item" key={index}>
-                    <div className="skill-info">
+                  <div className="about-skill-item" key={index}>
+                    <div className="about-skill-info">
                       <span className="skill-name">{skill.name}</span>
                       <span className="skill-percentage">{skill.level}%</span>
                     </div>

@@ -7,7 +7,7 @@
     --about-accent: #124e66;
     --about-card-bg: #f0f8ff;
     --about-card-border: rgba(0, 0, 0, 0.1);
-    --about-muted: #888;
+    --about-muted: #888; 
     
     --about-dark-bg: #121212;
     --about-dark-text: #eaeaea;
@@ -431,17 +431,17 @@
   }
   
   /* Skills */
-  .skills-grid {
+  .about-skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
   }
   
-  .skill-item {
+  .about-skill-item {
     margin-bottom: 1.2rem;
   }
   
-  .skill-info {
+  .about-skill-info {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
@@ -768,6 +768,12 @@
     .job-header {
       flex-direction: column;
     }
+
+     .about-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1.0rem;
+  }
     
     .job-date {
       margin-top: 0.5rem;

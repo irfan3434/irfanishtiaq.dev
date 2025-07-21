@@ -844,6 +844,7 @@ body.dark-mode .stat-label {
   .section-description {
     font-size: 1rem;
     margin-bottom: 2rem;
+    padding: 1rem;
   }
 
   .tech-stack-container {
