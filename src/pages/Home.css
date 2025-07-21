@@ -875,7 +875,7 @@ body.dark-mode .stat-label {
   .tech-item {
     padding: 0.6rem 0.6rem;
     font-size: 0.7rem;
-    width: 148px;
+    width: 155px;
   }
 
   .services-grid {
@@ -925,7 +925,7 @@ body.dark-mode .stat-label {
   .hero-cta {
     font-size: .9rem;
     padding: .75rem 1.5rem;
-    width: 190px;
+    width: 210px;
     text-align: center;
     justify-content: center;
   }
