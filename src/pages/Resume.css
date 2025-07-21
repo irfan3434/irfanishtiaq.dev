@@ -426,6 +426,10 @@ body.dark-mode .skill-name {
         padding: 0.5rem;
     }
 
+    .resume-container {
+      padding: 6rem 1rem 3rem;
+    }
+
     .download-button {
         font-size: 0.8rem;
         display: inline-flex;
@@ -463,11 +467,16 @@ body.dark-mode .skill-name {
     .job-duration,
     .education-duration {
         margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .resume-summary {
+      padding: 0.5rem;
     }
 
     .resume-summary p {
         text-align: justify;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .resume-section-title {
@@ -476,7 +485,15 @@ body.dark-mode .skill-name {
 
     .job-header h3,
     .education-header h3 {
-        font-size: 1.1rem;
+        font-size: 1.0rem;
+    }
+
+    .institution, .company-name {
+      font-size: 1rem;
+    }
+
+    .education-description {
+      font-size: 0.9rem;
     }
 
     .job-responsibilities li {
