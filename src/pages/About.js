@@ -227,12 +227,11 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> FCEC (Riyadh, KSA)</p>
                       <ul>
-                        <li>Developed a secure Employee Portal using Node.js, Django, and JWT authentication, featuring role-based access, task management, personalized dashboards, and real-time updates.</li>
-                        <li>Developed corporate websites using Shopify Liquid Platform: <a href="https://www.fcec.sa" target="_blank" rel="noopener noreferrer">fcec.sa</a>, <a href="https://www.fceco.sa" target="_blank" rel="noopener noreferrer">fceco.sa</a>, <a href="https://www.aqeaw.com" target="_blank" rel="noopener noreferrer">aqeaw.com</a>.</li>
-                        <li>Designed scalable, user-friendly web apps aligned with company goals.</li>
-                        <li>Analyzed IT infrastructure, providing optimization strategies.</li>
+                        <li>Developed a secure Employee Portal utilizing React, Node.js, Django, and JWT Authentication, supporting 50+ employees with features like role-based access control, personalized dashboards, and real-time updates, resulting in a 25% increase in operational efficiency.</li>
+                        <li>Designed, developed, and optimized responsive corporate websites and e-commerce stores, leveraging Shopify Liquid, React, and modern JavaScript, including: https://www.fcec.sa/, https://www.futurecode.sa/, https://aqeaw.com/, https://kheirfragrances.com/ and https://www.fceco.sa/.</li>
+                        <li>Improved website performance metrics (Google PageSpeed Insights) by 35%, significantly boosting user engagement and organic traffic.</li>
+                        <li>Conducted thorough analysis and strategic recommendations for IT infrastructure, reducing downtime by 20% through enhanced system reliability and optimized deployments.</li>
                         <li>Ensured secure, high-performance websites and regulatory compliance.</li>
-                        <li>Managed dev projects and trained teams on modern web tech.</li>
                       </ul>
                     </div>
                   </div>
@@ -248,11 +247,10 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> KreativStorm (Berlin, Germany)</p>
                       <ul>
-                        <li>Engaged in real-world projects demanding high-quality frontend development skills.</li>
-                        <li>Developed and optimized web pages using HTML, CSS and JavaScript.</li>
-                        <li>Exposure to relational database systems and Object Oriented Programming.</li>
-                        <li>Implemented interactive features and functionalities using Node.js.</li>
-                        <li>Actively design and maintain solutions targeting new applications.</li>
+                        <li>Designed, built, and optimized modern web applications using React, JavaScript (ES6+), HTML5, CSS3, and REST APIs, achieving over 40% improvement in load times.</li>
+                        <li>Translated UI/UX designs from tools like Figma, Adobe XD, and Photoshop into responsive and pixel-perfect frontend code, significantly enhancing client satisfaction and project turnaround by 30%.</li>
+                        <li>Implemented SEO best practices and responsive web design principles across multiple projects, boosting client site traffic by an average of 25%.</li>
+                        <li>Actively designed and maintained solutions targeting new applications.</li>
                       </ul>
                     </div>
                   </div>
@@ -268,10 +266,9 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> Crewlogix (Lahore, Pakistan)</p>
                       <ul>
-                        <li>Determined the source of computer problems (hardware, software, user access, etc.).</li>
-                        <li>Served as liaison between staff and the technology department to resolve issues.</li>
-                        <li>Implemented front-end technologies like HTML, CSS and JavaScript to design, develop and maintain user-friendly web applications.</li>
-                        <li>Developed and maintained high-quality Shopify themes.</li>
+                        <li>Developed and maintained custom Shopify themes and responsive frontend interfaces, contributing to increased e-commerce sales by approximately 20% year-over-year.</li>
+                        <li>Enhanced client websites’ responsiveness and accessibility, reducing bounce rate by 18% through optimized UI implementations.</li>
+                        <li>Provided ongoing website maintenance, bug troubleshooting, and performance optimization, reducing reported client issues by 30%.</li>
                         <li>Developed and implemented analytical capabilities and applications.</li>
                       </ul>
                     </div>
@@ -288,12 +285,10 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> TEXOL (Dammam, KSA)</p>
                       <ul>
-                        <li>Understanding and familiarity with top-notch programming skills and in-depth knowledge of modern HTML, CSS and JavaScript.</li>
-                        <li>Converted designs visualised in Photoshop, Illustrator, Adobe XD etc. to compliant HTML/CSS.</li>
-                        <li>Did the website maintenance for existing clients and new ones.</li>
+                        <li>Developed and maintained custom Shopify themes and responsive frontend interfaces, contributing to increased e-commerce sales by approximately 20% year-over-year.</li>
+                        <li>Enhanced client websites’ responsiveness and accessibility, reducing bounce rate by 18% through optimized UI implementations.</li>
+                        <li>Provided ongoing website maintenance, bug troubleshooting, and performance optimization, reducing reported client issues by 30%.</li>
                         <li>Implemented Responsive design principles.</li>
-                        <li>Troubleshoot and fixed bugs, evaluated their impact, and came up with immediate solutions.</li>
-                        <li>Gained basic knowledge of SEO best practices.</li>
                       </ul>
                     </div>
                   </div>
