@@ -423,7 +423,7 @@ body.dark-mode .skill-name {
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .resume-section {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .download-button {
@@ -485,17 +485,31 @@ body.dark-mode .skill-name {
     }
 
     .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   }
   
   .skill-card {
-    height: 60px;
-    padding: 1rem;
+    height: 40px;
+    padding: 0.5rem;
   }
 
   .skill-name {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
+
+  .category-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: 110px;
+}
+
+
+
 }
 
 

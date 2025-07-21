@@ -12,8 +12,8 @@ const SkillsSection = () => {
     { name: 'JavaScript(ES6+)', category: 'frontend' },
     { name: 'React.js', category: 'frontend' },
     { name: 'Shopify Liquid', category: 'frontend' },
-    { name: 'UI/UX Implementation (Figma, Adobe XD, Photoshop)', category: 'frontend' },
-    { name: 'Responsive Web Design', category: 'Frontend' },
+    { name: 'UI/UX (Figma, Adobe XD, Photoshop)', category: 'frontend' },
+    { name: 'Responsive Web Design', category: 'frontend' },
     { name: 'Node.js', category: 'backend' },
     { name: 'Django (Python)', category: 'backend' },
     { name: 'REST APIs', category: 'backend' },
@@ -24,13 +24,13 @@ const SkillsSection = () => {
     { name: 'Postman (API Testing)', category: 'tools' },
     { name: 'VS Code', category: 'tools' },
     { name: 'SEO Best Practices', category: 'testing' },
-    { name: 'Google PageSpeed Optimization', category: 'testing' },
+    { name: 'Google Optimization', category: 'testing' },
     { name: 'Performance Tuning', category: 'testing' },
     { name: 'Debugging & Troubleshooting', category: 'testing' },
     { name: 'IT Infrastructure Consulting', category: 'softskills' },
-    { name: 'Strategic Technology Planning', category: 'softskills' },
+    { name: 'Strategic Planning', category: 'softskills' },
     { name: 'Client Communication', category: 'softskills' },
-    { name: 'Project Management (Basic)', category: 'softskills' },
+    { name: 'Project Management', category: 'softskills' },
   
   ];
 
