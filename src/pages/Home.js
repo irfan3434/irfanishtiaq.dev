@@ -77,7 +77,7 @@ const HeroSection = () => {
     { name: 'UI/UX Design', category: 'design' },
     { name: 'Responsive Design', category: 'design' },
     { name: 'Git/GitHub', category: 'tool' },
-    { name: 'Postman (API Testing)', category: 'tool' },
+    { name: 'Postman (API)', category: 'tool' },
     
   ];
  

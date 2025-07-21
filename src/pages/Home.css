@@ -848,15 +848,15 @@ body.dark-mode .stat-label {
 
   .tech-stack-container {
         grid-template-columns: repeat(2, 1fr);
-        padding: 0 16px; /* Optional: add horizontal padding */
-    }
+        place-items: center;
+  }
 
   .tech-stack-section {
     padding: 3rem 1.5rem;
   }
 
   .quick-stats {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1rem;
   }
 
   .stats-grid { 
@@ -874,8 +874,8 @@ body.dark-mode .stat-label {
 
   .tech-item {
     padding: 0.6rem 0.6rem;
-    font-size: 0.8rem;
-    width: 160px;
+    font-size: 0.7rem;
+    width: 148px;
   }
 
   .services-grid {
@@ -896,7 +896,7 @@ body.dark-mode .stat-label {
 
 @media (max-width: 480px) {
   .hero-heading {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .terminal-cursor {
@@ -923,8 +923,11 @@ body.dark-mode .stat-label {
   }
 
   .hero-cta {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: .9rem;
+    padding: .75rem 1.5rem;
+    width: 180px;
+    text-align: center;
+    justify-content: center;
   }
 
   .hero-badge {
