@@ -68,14 +68,16 @@ const HeroSection = () => {
     { name: 'React', category: 'frontend' },
     { name: 'Shopify Liquid', category: 'frontend' },
     { name: 'Node.js', category: 'backend' },
-    { name: 'Django', category: 'backend' },
+    { name: 'Django (Python)', category: 'backend' },
     { name: 'REST APIs', category: 'backend' },
+    { name: 'JWT Authentication', category: 'backend' },
     { name: 'Express', category: 'backend' },
     { name: 'MongoDB', category: 'database' },
     { name: 'JSON', category: 'database' },
     { name: 'UI/UX Design', category: 'design' },
     { name: 'Responsive Design', category: 'design' },
     { name: 'Git/GitHub', category: 'tool' },
+    { name: 'Postman (API Testing)', category: 'tool' },
     
   ];
  

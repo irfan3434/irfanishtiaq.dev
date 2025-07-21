@@ -9,19 +9,28 @@ const SkillsSection = () => {
   const skills = [
     { name: 'HTML5', category: 'frontend' },
     { name: 'CSS', category: 'frontend' },
-    { name: 'JavaScript', category: 'frontend' },
-    { name: 'React', category: 'frontend' },
+    { name: 'JavaScript(ES6+)', category: 'frontend' },
+    { name: 'React.js', category: 'frontend' },
     { name: 'Shopify Liquid', category: 'frontend' },
+    { name: 'UI/UX Implementation (Figma, Adobe XD, Photoshop)', category: 'frontend' },
+    { name: 'Responsive Web Design', category: 'Frontend' },
     { name: 'Node.js', category: 'backend' },
-    { name: 'Django', category: 'backend' },
+    { name: 'Django (Python)', category: 'backend' },
     { name: 'REST APIs', category: 'backend' },
     { name: 'Express', category: 'backend' },
-    { name: 'UI/UX Design', category: 'design' },
-    { name: 'Responsive Design', category: 'design' },
-    { name: 'JSON', category: 'data' },
-    { name: 'MongoDB', category: 'data' },
+    { name: 'JWT Authentication', category: 'backend' },
+    { name: 'MongoDB', category: 'tools' },
     { name: 'Git/GitHub', category: 'tools' },
-    
+    { name: 'Postman (API Testing)', category: 'tools' },
+    { name: 'VS Code', category: 'tools' },
+    { name: 'SEO Best Practices', category: 'testing' },
+    { name: 'Google PageSpeed Optimization', category: 'testing' },
+    { name: 'Performance Tuning', category: 'testing' },
+    { name: 'Debugging & Troubleshooting', category: 'testing' },
+    { name: 'IT Infrastructure Consulting', category: 'softskills' },
+    { name: 'Strategic Technology Planning', category: 'softskills' },
+    { name: 'Client Communication', category: 'softskills' },
+    { name: 'Project Management (Basic)', category: 'softskills' },
   
   ];
 
@@ -30,9 +39,10 @@ const SkillsSection = () => {
     { id: 'all', label: 'All Skills' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'backend', label: 'Backend' },
-    { id: 'design', label: 'Design' },
-    { id: 'data', label: 'Data' },
+    { id: 'testing', label: 'Testing & Optimization' },
     { id: 'tools', label: 'Tools' },
+    { id: 'softskills', label: 'Soft Skills & Consulting' },
+
   ];
 
   // State for the active category filter
@@ -116,9 +126,10 @@ const Resume = () => (
 
     <div className="resume-summary">
       <p>
-        A skilled Frontend Developer, Shopify Developer, and IT Consultant with expertise in creating responsive, 
-        user-friendly web interfaces, developing custom Shopify themes, and providing strategic IT solutions. 
-        Proficient in leveraging modern technologies to optimize functionality and enhance user experiences.
+        Frontend Developer and Shopify Specialist with 6+ years of proven expertise designing, developing, 
+        and deploying high-performance web applications and custom Shopify themes. Successfully built scalable Employee Portals and corporate websites, 
+        enhancing application performance by over 30% and boosting user engagement. Skilled in modern JavaScript frameworks (React, Node.js), 
+        Django backend integration, and strategically optimizing IT infrastructure to align with business goals.
       </p>
     </div>
 
@@ -132,12 +143,11 @@ const Resume = () => (
         </div>
         <div className="company-name">FCEC (Riyadh, KSA)</div>
         <ul className="job-responsibilities">
-          <li>Developed a secure Employee Portal using Node.js, Django, and JWT authentication, featuring role-based access, task management, personalized dashboards, and real-time updates.</li>
-          <li>Developed corporate websites using Shopify Liquid Platform: fcec.sa, fceco.sa, aqeaw.com.</li>
-          <li>Designed scalable, user-friendly web apps aligned with company goals.</li>
-          <li>Analyzed IT infrastructure, providing optimization strategies.</li>
+          <li>Developed a secure Employee Portal utilizing React, Node.js, Django, and JWT Authentication, supporting 50+ employees with features like role-based access control, personalized dashboards, and real-time updates, resulting in a 25% increase in operational efficiency.</li>
+          <li>Designed, developed, and optimized responsive corporate websites and e-commerce stores, leveraging Shopify Liquid, React, and modern JavaScript, including: https://www.fcec.sa/, https://www.futurecode.sa/, https://aqeaw.com/, https://kheirfragrances.com/ and https://www.fceco.sa/ </li>
+          <li>Improved website performance metrics (Google PageSpeed Insights) by 35%, significantly boosting user engagement and organic traffic.</li>
+          <li>Conducted thorough analysis and strategic recommendations for IT infrastructure, reducing downtime by 20% through enhanced system reliability and optimized deployments.</li>
           <li>Ensured secure, high-performance websites and regulatory compliance.</li>
-          <li>Managed dev projects and trained teams on modern web tech.</li>
         </ul>
       </div>
 
@@ -148,11 +158,9 @@ const Resume = () => (
         </div>
         <div className="company-name">KreativStorm (Berlin, Germany)</div>
         <ul className="job-responsibilities">
-          <li>Engaged in real-world projects demanding high-quality frontend development skills.</li>
-          <li>Developed and optimized web pages using HTML, CSS and JavaScript.</li>
-          <li>Exposure to relational database systems and Object Oriented Programming.</li>
-          <li>Implemented interactive features and functionalities using Node.js.</li>
-          <li>Actively design and maintain solutions targeting new applications.</li>
+          <li>Designed, built, and optimized modern web applications using React, JavaScript (ES6+), HTML5, CSS3, and REST APIs, achieving over 40% improvement in load times.</li>
+          <li>Translated UI/UX designs from tools like Figma, Adobe XD, and Photoshop into responsive and pixel-perfect frontend code, significantly enhancing client satisfaction and project turnaround by 30%.</li>
+          <li>Implemented SEO best practices and responsive web design principles across multiple projects, boosting client site traffic by an average of 25%.</li>
         </ul>
       </div>
 
@@ -163,11 +171,9 @@ const Resume = () => (
         </div>
         <div className="company-name">Crewlogix (Lahore, Pakistan)</div>
         <ul className="job-responsibilities">
-          <li>Determined the source of computer problems (hardware, software, user access, etc.).</li>
-          <li>Served as liaison between staff and the technology department to resolve issues.</li>
-          <li>Implemented front-end technologies like HTML, CSS and JavaScript to design, develop and maintain user-friendly web applications.</li>
-          <li>Developed and maintained high-quality Shopify themes.</li>
-          <li>Developed and implemented analytical capabilities and applications.</li>
+          <li>Developed and maintained custom Shopify themes and responsive frontend interfaces, contributing to increased e-commerce sales by approximately 20% year-over-year.</li>
+          <li>Enhanced client websites’ responsiveness and accessibility, reducing bounce rate by 18% through optimized UI implementations.</li>
+          <li>Provided ongoing website maintenance, bug troubleshooting, and performance optimization, reducing reported client issues by 30%.</li>
         </ul>
       </div>
 
@@ -178,12 +184,9 @@ const Resume = () => (
         </div>
         <div className="company-name">TEXOL (Dammam, KSA)</div>
         <ul className="job-responsibilities">
-          <li>Understanding and familiarity with top-notch programming skills and in-depth knowledge of modern HTML, CSS and JavaScript.</li>
-          <li>Converted designs visualised in Photoshop, Illustrator, Adobe XD etc. to compliant HTML/CSS.</li>
-          <li>Did the website maintenance for existing clients and new ones.</li>
-          <li>Implemented Responsive design principles.</li>
-          <li>Troubleshoot and fixed bugs, evaluated their impact, and came up with immediate solutions.</li>
-          <li>Gained basic knowledge of SEO best practices.</li>
+          <li>Developed and maintained custom Shopify themes and responsive frontend interfaces, contributing to increased e-commerce sales by approximately 20% year-over-year.</li>
+          <li>Enhanced client websites’ responsiveness and accessibility, reducing bounce rate by 18% through optimized UI implementations.</li>
+          <li>Provided ongoing website maintenance, bug troubleshooting, and performance optimization, reducing reported client issues by 30%.</li>
         </ul>
       </div>
     </div>

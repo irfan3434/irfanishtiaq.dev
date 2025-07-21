@@ -151,10 +151,11 @@ const About = () => {
     { name: "Shopify Liquid", level: 90 },
     { name: "UI/UX Design", level: 80 },
     { name: "Responsive Design", level: 95 },
-    { name: "JSON", level: 75 },
     { name: "Git/GitHub", level: 85 },
     { name: "REST APIs", level: 80 },
-    { name: "Express", level: 85 }
+    { name: "Express", level: 85 },
+    { name: "Postman (API testing)", level: 85 }
+    
   ];
  
   return (
