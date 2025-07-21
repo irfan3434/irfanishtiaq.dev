@@ -465,7 +465,7 @@ body.dark-mode .section-description {
 .tech-stack-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
+    gap: 10px;
     place-items: center;
 }
 
