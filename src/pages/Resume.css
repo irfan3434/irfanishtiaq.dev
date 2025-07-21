@@ -264,7 +264,7 @@ body.dark-mode .education-description {
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 500;
-  width: 100px;
+  width: 150px;
 }
 
 .category-btn.active {
@@ -343,18 +343,18 @@ body.dark-mode .skill-frontend {
   border-left: 5px solid #3b82f6; /* emerald-500 */
 }
 
-.skill-design {
+.skill-testing {
   border-left: 5px solid #f1c40f; /* violet-500 */
 }
 
-.skill-data {
+.skill-softskills {
   border-left: 5px solid #8b5cf6; /* amber-500 */
 }
 
 .skill-tools {
   border-left: 5px solid #ef4444; /* red-500 */
 }
-
+ 
 .skill-content {
   flex: 1;
 }

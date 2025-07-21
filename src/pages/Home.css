@@ -483,7 +483,7 @@ body.dark-mode .section-description {
   transition: all var(--transition-speed) ease;
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
-  width: 200px;
+  width: 218px;
 }
 
 .tech-item:hover {
