@@ -128,7 +128,7 @@ const Projects = () => {
         'Ensured SEO best practices',
       ],
       stack: ['Wix', 'Webdesign', 'web development', 'UI/UX Design', 'Responsive Design'],
-      color: '#2dd152'
+      color: '#d1532dff'
     }
   ];
 
