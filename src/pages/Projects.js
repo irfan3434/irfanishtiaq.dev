@@ -8,6 +8,7 @@ import proImage2 from '../assets/fceco-preview.png'
 import proImage3 from '../assets/aqeaw 5.webp'
 import proImage4 from '../assets/futurecode3.webp' // Add this new import
 import proImage5 from '../assets/kf10.png'
+import proImage6 from '../assets/maisonroyah.webp'
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -112,6 +113,22 @@ const Projects = () => {
       ],
       stack: ['HTML5', 'CSS3', 'JavaScript', 'Shopify', 'Liquid', 'Responsive Design'],
       color: '#a9beb3'
+    },
+    {
+      id: 6,
+      title: 'Maison Royah – Extravagant Fragrance House',
+      url: 'https://www.maisonroyah.com/',
+      image: proImage6,
+      description: 'Built using the Wix platform, the site showcases a refined aesthetic that aligns with the brand’s luxurious identity.',
+      challenge: 'Designing immersive product presentation pages with rich visuals and clean layouts.',
+      solution: 'Designed and developed a visually elegant, fully responsive e-commerce website for Maison Royah, a premium home fragrance brand based in United Kingdom.',
+      features: [
+        'Integrated Wix Stores for seamless shopping experience',
+        'Optimized for mobile and tablet responsiveness',
+        'Ensured SEO best practices',
+      ],
+      stack: ['Wix', 'Webdesign', 'web development', 'UI/UX Design', 'Responsive Design'],
+      color: '#2dd152'
     }
   ];
 
