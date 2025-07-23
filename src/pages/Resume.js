@@ -13,7 +13,7 @@ const SkillsSection = () => {
     { name: 'React.js', category: 'frontend' },
     { name: 'Shopify Liquid', category: 'frontend' },
     { name: 'UI/UX (Figma, Adobe XD, Photoshop)', category: 'frontend' },
-    { name: 'Responsive Web Design', category: 'frontend' },
+    { name: 'Wix Web Design', category: 'frontend' },
     { name: 'Node.js', category: 'backend' },
     { name: 'Django (Python)', category: 'backend' },
     { name: 'REST APIs', category: 'backend' },
@@ -144,7 +144,7 @@ const Resume = () => (
         <div className="company-name">FCEC (Riyadh, KSA)</div>
         <ul className="job-responsibilities">
           <li>Developed a secure Employee Portal utilizing React, Node.js, Django, and JWT Authentication, supporting 50+ employees with features like role-based access control, personalized dashboards, and real-time updates, resulting in a 25% increase in operational efficiency.</li>
-          <li>Designed, developed, and optimized responsive corporate websites and e-commerce stores, leveraging Shopify Liquid, React, and modern JavaScript, including: https://www.fcec.sa/, https://www.futurecode.sa/, https://aqeaw.com/, https://kheirfragrances.com/ and https://www.fceco.sa/ </li>
+          <li>Designed, developed, and optimized responsive corporate websites and e-commerce stores, leveraging Shopify Liquid, React, Wix and modern JavaScript, including: https://www.fcec.sa/, https://www.futurecode.sa/, https://aqeaw.com/, https://kheirfragrances.com/, https://www.fceco.sa/ and https://www.maisonroyah.com/. </li>
           <li>Improved website performance metrics (Google PageSpeed Insights) by 35%, significantly boosting user engagement and organic traffic.</li>
           <li>Conducted thorough analysis and strategic recommendations for IT infrastructure, reducing downtime by 20% through enhanced system reliability and optimized deployments.</li>
           <li>Ensured secure, high-performance websites and regulatory compliance.</li>
