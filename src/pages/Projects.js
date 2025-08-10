@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import './Projects.css';
 import proImage1 from '../assets/fcec4.webp'
-import proImage2 from '../assets/fceco-preview.png'
+import proImage2 from '../assets/fceco.webp'
 import proImage3 from '../assets/aqeaw 5.webp'
 import proImage4 from '../assets/futurecode3.webp' // Add this new import
 import proImage5 from '../assets/kf10.png'
