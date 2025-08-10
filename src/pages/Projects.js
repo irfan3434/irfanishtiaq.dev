@@ -85,7 +85,7 @@ const Projects = () => {
       title: 'FCECO – Sustainable Energy',
       url: 'https://www.fceco.sa',
       image: proImage2,
-      description: 'Website for FCECO sustainable energy services, built with a custom Shopify theme focusing on clarity, performance, and visual impact to highlight their green initiatives.',
+      description: 'Designed and developed a fast, responsive corporate website for FC ECO using Next.js. Features include a clean brand-aligned UI, dynamic sections (Problem/Solution, Values, Projects), and mobile-optimized navigation.',
       challenge: 'Communicating complex energy services visually while maintaining an engaging user experience that drives conversion and inquiry.',
       solution: 'Designed an interactive service exploration system with animated data visualizations and intuitive navigation flow that guides users from awareness to contact.',
       features: [
