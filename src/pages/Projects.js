@@ -60,7 +60,7 @@ const Projects = () => {
         'Interactive service exploration',
         'Mobile-first responsive design'
       ],
-      stack: ['React', 'JavaScript ES6+', 'CSS3', 'HTML5', 'Responsive Design', 'REST API'],
+      stack: ['React.js', 'JavaScript ES6+', 'CSS3', 'HTML5', 'Responsive Design', 'REST API'],
       color: '#8B5CF6'
     },
     {
@@ -94,7 +94,7 @@ const Projects = () => {
         'Animated data visualizations',
         'Custom contact forms with validation'
       ],
-      stack: ['Shopify', 'Liquid', 'Responsive Design', 'JavaScript', 'CSS3', 'HTML5' ],
+      stack: ['Next.js', 'React.js', 'Responsive Design', 'JavaScript', 'CSS3', 'HTML5' ],
       color: '#29b7cf'
     },
     {

@@ -10,6 +10,7 @@ const SkillsSection = () => {
     { name: 'HTML5', category: 'frontend' },
     { name: 'CSS', category: 'frontend' },
     { name: 'JavaScript(ES6+)', category: 'frontend' },
+    { name: 'Next.js', category: 'frontend' },
     { name: 'React.js', category: 'frontend' },
     { name: 'Shopify Liquid', category: 'frontend' },
     { name: 'UI/UX (Figma, Adobe XD, Photoshop)', category: 'frontend' },
