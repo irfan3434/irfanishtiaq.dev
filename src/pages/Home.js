@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight, Code, Monitor, Layers, Zap, GitBranch, ShoppingBag, Layout, Smartphone, Server, Users, BarChart, Database, FileText } from 'lucide-react';
 import './Home.css';
 import profileImage from '../assets/profile1.png';
+import ProfileCard from '../components/ProfileCard'; // Import the new ProfileCard component
 
 const HeroSection = () => {
   const [taglineIndex, setTaglineIndex] = useState(0);
@@ -17,8 +18,7 @@ const HeroSection = () => {
     "Performance-Obsessed Builder",
   ];
 
-
-    const services = [
+  const services = [
     {
       title: "Custom Shopify Theme Development",
       description: "Tailor-made Shopify themes that reflect your brand identity and enhance customer experience.",
@@ -79,7 +79,6 @@ const HeroSection = () => {
     { name: 'Wix Web Design', category: 'design' },
     { name: 'Git/GitHub', category: 'tool' },
     { name: 'Postman (API)', category: 'tool' },
-    
   ];
  
   useEffect(() => {
@@ -88,14 +87,12 @@ const HeroSection = () => {
     }, 3000);
     
     setIsVisible(true);
-    
 
     setTimeout(() => {
       if (servicesRef.current) {
         servicesRef.current.classList.add('visible');
       }
     }, 500);
-
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -139,6 +136,12 @@ const HeroSection = () => {
     }
   };
 
+  // Handle contact click for ProfileCard
+  const handleContactClick = () => {
+    // You can navigate to contact page or open contact modal
+    window.location.href = '/Contact';
+  };
+
   return (
     <>
       <section className={`hero-section ${isVisible ? 'fade-in' : ''}`}>
@@ -152,15 +155,23 @@ const HeroSection = () => {
         
         <div className="hero-container">
           <div className="hero-left">
-            <div className="profile-container">
-              <img src={profileImage} alt="Irfan Ishtiaq" className="profile-img" />
-              <div className="profile-ring"></div>
-              <div className="profile-blob"></div>
-            </div>
+            {/* Replace the old profile-container with new ProfileCard */}
+            <ProfileCard
+              name="Irfan Ishtiaq"
+              title="Frontend Developer"
+              handle="irfanishtiaq"
+              status="Available for Projects"
+              contactText="Contact Me"
+              avatarUrl={profileImage}
+              showUserInfo={true}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={handleContactClick}
+              className="profile-card-custom"
+            />
           </div>
 
           <div className="hero-right">
-            
             <h1 className="hero-heading">
               <span className="terminal-cursor">$</span> Hi, I'm <span className="underline">Irfan Ishtiaq</span>
             </h1>
