@@ -778,6 +778,7 @@ body.dark-mode .stat-label {
 @media (max-width: 768px) {
   .hero-section {
     padding: 4rem 1.5rem 2rem;
+    margin-top: 4rem;
   }
 
   .hero-container {
