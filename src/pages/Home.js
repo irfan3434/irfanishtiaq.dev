@@ -203,8 +203,8 @@ const HeroSection = () => {
       {/* New Services Section */}
       <section className="services-section" ref={servicesRef}>
         <div className="services-container">
-          <h2 className="section-title">Services</h2>
-          <p className="section-description">Specialized solutions I offer to bring your vision to life</p>
+          <h2 className="hero-section-title">Services</h2>
+          <p className="hero-section-description">Specialized solutions I offer to bring your vision to life</p>
           
           <div className="services-grid">
             {services.map((service, index) => (

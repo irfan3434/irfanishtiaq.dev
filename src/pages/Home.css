@@ -439,7 +439,7 @@ body.dark-mode .tech-stack-section {
   margin: 0 auto;
 }
 
-.section-title {
+.hero-section-title {
   font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -447,18 +447,18 @@ body.dark-mode .tech-stack-section {
   color: var(--hero-text);
 }
 
-body.dark-mode .section-title {
+body.dark-mode .hero-section-title {
   color: var(--hero-dark-text);
 }
 
-.section-description {
+.hero-section-description {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   text-align: center;
   color: var(--hero-subtext);
 }
 
-body.dark-mode .section-description {
+body.dark-mode .hero-section-description {
   color: var(--hero-dark-subtext);
 }
 
@@ -784,7 +784,7 @@ body.dark-mode .stat-label {
   .hero-container {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
   .hero-left {
@@ -838,11 +838,12 @@ body.dark-mode .stat-label {
     margin-bottom: 1rem;
   }
 
-  .section-title {
+  .hero-section-title {
     font-size: 1.8rem;
+    margin-bottom: 0rem;
   }
 
-  .section-description {
+  .hero-section-description {
     font-size: 1rem;
     margin-bottom: 2rem;
     padding: 1rem;
