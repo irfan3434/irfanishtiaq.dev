@@ -308,7 +308,7 @@
 }
 
 .footer-social li:nth-child(4) .footer-social-link:hover {
-  background: linear-gradient(135deg, #124e66 0%, #0f3d52 100%);
+  background: linear-gradient(135deg, #0a2681 0%, #0a2681 100%);
   color: white;
   transform: translateY(-8px) scale(1.1);
   box-shadow: 0 10px 25px rgba(18, 78, 102, 0.3);
