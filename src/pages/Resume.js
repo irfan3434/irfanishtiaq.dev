@@ -167,7 +167,7 @@ const Resume = () => (
 
       <div className="experience-item">
         <div className="job-header">
-          <h3>Frontend Developer | IT Specialist</h3>
+          <h3>Frontend Developer</h3>
           <span className="job-duration">Jul 2021 – Feb 2023</span>
         </div>
         <div className="company-name">Crewlogix (Lahore, Pakistan)</div>

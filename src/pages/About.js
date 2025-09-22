@@ -262,7 +262,7 @@ const About = () => {
                   <div className="timeline-content">
                     <div className="job-item">
                       <div className="job-header">
-                        <h3>Frontend Developer | IT Specialist</h3>
+                        <h3>Frontend Developer</h3>
                         <span className="job-date">Jul 2021 – Feb 2023</span>
                       </div>
                       <p className="job-company"><Globe size={16} /> Crewlogix (Lahore, Pakistan)</p>
