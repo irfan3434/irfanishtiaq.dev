@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import './Resume.css';
-import  myResume from '../assets/Irfan_Resume.pdf'
+import  myResume from '../assets/Latest_Resume.pdf'
 
 // Skills Section Component
 const SkillsSection = () => {
