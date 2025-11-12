@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Phone, Send, CheckCircle, AlertCircle, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, Send, CheckCircle, AlertCircle, MapPin } from 'lucide-react';
 import './Contact.css';
 
 // Custom animated Input component

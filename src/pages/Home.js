@@ -81,39 +81,43 @@ const HeroSection = () => {
     { name: 'Postman (API)', category: 'tool' },
   ];
  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTaglineIndex((prev) => (prev + 1) % taglines.length);
-    }, 3000);
-    
-    setIsVisible(true);
+useEffect(() => {
+  const interval = setInterval(() => {
+    setTaglineIndex((prev) => (prev + 1) % taglines.length);
+  }, 3000);
+  
+  setIsVisible(true);
 
-    setTimeout(() => {
-      if (servicesRef.current) {
-        servicesRef.current.classList.add('visible');
-      }
-    }, 500);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('stack-visible');
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (techStackRef.current) {
-      observer.observe(techStackRef.current);
+  setTimeout(() => {
+    if (servicesRef.current) {
+      servicesRef.current.classList.add('visible');
     }
-    
-    return () => {
-      clearInterval(interval);
-      if (techStackRef.current) {
-        observer.unobserve(techStackRef.current);
+  }, 500);
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('stack-visible');
       }
-    };
-  }, []);
+    },
+    { threshold: 0.1 }
+  );
+  
+  // Store the current ref value in a variable
+  const currentTechStackRef = techStackRef.current;
+  
+  if (currentTechStackRef) {
+    observer.observe(currentTechStackRef);
+  }
+  
+  return () => {
+    clearInterval(interval);
+    // Use the stored variable instead of techStackRef.current
+    if (currentTechStackRef) {
+      observer.unobserve(currentTechStackRef);
+    }
+  };
+}, [taglines.length]); // This dependency is now correct
 
   const getCategoryIcon = (category) => {
     switch(category) {
