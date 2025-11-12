@@ -18,7 +18,7 @@ const Footer = () => {
   const [currentYear] = useState(new Date().getFullYear());
   const [darkMode, setDarkMode] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [IsHovered, setIsHovered] = useState(false);
+  const [setIsHovered] = useState(false);
 
   const thoughts = [
   "Performance isn't a feature. It's a mindset.",
@@ -38,7 +38,7 @@ const Footer = () => {
   }, 5000); // Change quote every 5 seconds
 
   return () => clearInterval(interval);
-  }, []);
+  }, [thoughts.length]);
 
   // Sync with global dark mode
   useEffect(() => {
