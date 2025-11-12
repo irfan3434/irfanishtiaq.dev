@@ -170,8 +170,8 @@ const About = () => {
             <div className="profile-accent"></div> 
           </motion.div>
             <motion.p className="about-summary" initial={{ opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              A skilled Frontend Developer, Shopify Developer, and IT Consultant with expertise in creating responsive, 
-              user-friendly web interfaces, developing custom Shopify themes, and providing strategic IT solutions. 
+              A skilled Frontend Developer, React Developer, and Shopify Expert with expertise in creating responsive, 
+              user-friendly web interfaces, developing custom Shopify themes, and providing React applications. 
               Proficient in leveraging modern technologies to optimize functionality and enhance user experiences.
             </motion.p>
         

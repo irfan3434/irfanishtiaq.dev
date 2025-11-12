@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import './Resume.css';
-import  myResume from '../assets/Latest_Resume.pdf'
+import  myResume from '../assets/Latest_Resume_.pdf'
 
 // Skills Section Component
 const SkillsSection = () => {
@@ -127,7 +127,7 @@ const Resume = () => (
 
     <div className="resume-summary">
       <p>
-        Frontend Developer and Shopify Specialist with 6+ years of proven expertise designing, developing, 
+        Frontend Developer, React & Shopify Specialist with 6+ years of proven expertise designing, developing, 
         and deploying high-performance web applications and custom Shopify themes. Successfully built scalable Employee Portals and corporate websites, 
         enhancing application performance by over 30% and boosting user engagement. Skilled in modern JavaScript frameworks (React, Node.js), 
         Django backend integration, and strategically optimizing IT infrastructure to align with business goals.
