@@ -129,8 +129,7 @@ const Resume = () => (
       <p>
         Frontend Developer, React & Shopify Specialist with 6+ years of proven expertise designing, developing, 
         and deploying high-performance web applications and custom Shopify themes. Successfully built scalable Employee Portals and corporate websites, 
-        enhancing application performance by over 30% and boosting user engagement. Skilled in modern JavaScript frameworks (React, Node.js), 
-        Django backend integration, and strategically optimizing IT infrastructure to align with business goals.
+        enhancing application performance by over 30% and boosting user engagement. Skilled in web technologies (HTML, CSS, JavaScript), modern frameworks (React, Node.js), Django backend integration, and strategically optimizing IT infrastructure to align with business goals.
       </p>
     </div>
 
