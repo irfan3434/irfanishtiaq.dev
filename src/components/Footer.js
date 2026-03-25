@@ -18,7 +18,7 @@ const Footer = () => {
   const [currentYear] = useState(new Date().getFullYear());
   const [darkMode, setDarkMode] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [, setIsHovered] = useState(false);
 
   const thoughts = [
   "Performance isn't a feature. It's a mindset.",
