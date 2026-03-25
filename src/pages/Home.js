@@ -1,15 +1,58 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ArrowRight, Code, Monitor, Layers, Zap, GitBranch, ShoppingBag, Layout, Smartphone, Server, Users, BarChart, Database, FileText } from 'lucide-react';
+import { ArrowRight, ShoppingBag, Layout, Smartphone, Server, Users, BarChart, Database, FileText } from 'lucide-react';
 import './Home.css';
 import profileImage from '../assets/profile1.png';
-import ProfileCard from '../components/ProfileCard'; // Import the new ProfileCard component
+import ProfileCard from '../components/ProfileCard';
 
+/* ── Count-up stat card ──────────────────────────────────────────────── */
+const StatCard = ({ end, suffix, label, delay = 0 }) => {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setStarted(true); },
+      { threshold: 0.5 }
+    );
+    if (el) observer.observe(el);
+    return () => el && observer.unobserve(el);
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    const timeout = setTimeout(() => {
+      const duration = 1600;
+      let startTime = null;
+      const animate = (ts) => {
+        if (!startTime) startTime = ts;
+        const progress = Math.min((ts - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        setCount(Math.floor(eased * end));
+        if (progress < 1) requestAnimationFrame(animate);
+        else setCount(end);
+      };
+      requestAnimationFrame(animate);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [started, end, delay]);
+
+  return (
+    <div className="stat-card" ref={ref}>
+      <div className="stat-number">{count}{suffix}</div>
+      <div className="stat-label">{label}</div>
+    </div>
+  );
+};
+
+/* ── Main component ──────────────────────────────────────────────────── */
 const HeroSection = () => {
   const [taglineIndex, setTaglineIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const techStackRef = useRef(null);
   const servicesRef = useRef(null);
-  
+
   const taglines = [
     "Creative Frontend Developer",
     "React & Shopify Expert",
@@ -19,147 +62,78 @@ const HeroSection = () => {
   ];
 
   const services = [
-    {
-      title: "Custom Shopify Theme Development",
-      description: "Tailor-made Shopify themes that reflect your brand identity and enhance customer experience.",
-      icon: <ShoppingBag size={24} />
-    },
-    {
-      title: "Modern Frontend Development",
-      description: "Interactive and dynamic user interfaces using React, HTML, CSS, and JavaScript.",
-      icon: <Layout size={24} />
-    },
-    {
-      title: "Responsive UI Design & Implementation",
-      description: "Pixel-perfect interfaces that work flawlessly across all devices and screen sizes.",
-      icon: <Smartphone size={24} />
-    },
-    {
-      title: "Full-Stack Web App Development",
-      description: "End-to-end solutions using Node.js and Django for robust web applications.",
-      icon: <Server size={24} />
-    },
-    {
-      title: "Role-Based Dashboards & Authentication",
-      description: "Secure user management systems with custom permission structures.",
-      icon: <Users size={24} />
-    },
-    {
-      title: "Performance Optimization & SEO",
-      description: "Accelerate load times and improve search engine visibility for your applications.",
-      icon: <BarChart size={24} />
-    },
-    {
-      title: "Headless CMS & REST API Integrations",
-      description: "Seamless connections between your frontend and various data sources.",
-      icon: <Database size={24} />
-    },
-    {
-      title: "Technical Consulting & Audits",
-      description: "Expert advice on architecture, infrastructure, and performance improvements.",
-      icon: <FileText size={24} />
-    }
+    { title: "Custom Shopify Theme Development",       description: "Tailor-made Shopify themes that reflect your brand identity and enhance customer experience.",    icon: <ShoppingBag size={22} /> },
+    { title: "Modern Frontend Development",            description: "Interactive and dynamic user interfaces using React, HTML, CSS, and JavaScript.",                   icon: <Layout size={22} /> },
+    { title: "Responsive UI Design & Implementation",  description: "Pixel-perfect interfaces that work flawlessly across all devices and screen sizes.",               icon: <Smartphone size={22} /> },
+    { title: "Full-Stack Web App Development",         description: "End-to-end solutions using Node.js and Django for robust web applications.",                       icon: <Server size={22} /> },
+    { title: "Role-Based Dashboards & Authentication", description: "Secure user management systems with custom permission structures.",                                icon: <Users size={22} /> },
+    { title: "Performance Optimization & SEO",         description: "Accelerate load times and improve search engine visibility for your applications.",                icon: <BarChart size={22} /> },
+    { title: "Headless CMS & REST API Integrations",   description: "Seamless connections between your frontend and various data sources.",                             icon: <Database size={22} /> },
+    { title: "Technical Consulting & Audits",          description: "Expert advice on architecture, infrastructure, and performance improvements.",                     icon: <FileText size={22} /> },
   ];
 
-  const techStack = [
-    { name: 'HTML5', category: 'frontend' },
-    { name: 'CSS', category: 'frontend' },
-    { name: 'JavaScipt', category: 'frontend' },
-    { name: 'React.js', category: 'frontend' },
-    { name: 'Next.js', category: 'frontend' },
-    { name: 'Shopify Liquid', category: 'frontend' },
-    { name: 'Node.js', category: 'backend' },
-    { name: 'Django (Python)', category: 'backend' },
-    { name: 'REST APIs', category: 'backend' },
-    { name: 'JWT Authentication', category: 'backend' },
-    { name: 'Express', category: 'backend' },
-    { name: 'MongoDB', category: 'database' },
-    { name: 'JSON', category: 'database' },
-    { name: 'UI/UX Design', category: 'design' },
-    { name: 'Wix Web Design', category: 'design' },
-    { name: 'Git/GitHub', category: 'tool' },
-    { name: 'Postman (API)', category: 'tool' },
-  ];
- 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setTaglineIndex((prev) => (prev + 1) % taglines.length);
-  }, 3000);
-  
-  setIsVisible(true);
-
-  setTimeout(() => {
-    if (servicesRef.current) {
-      servicesRef.current.classList.add('visible');
-    }
-  }, 500);
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('stack-visible');
-      }
+  const techGroups = [
+    {
+      label: "Frontend",
+      color: "#61dafb",
+      items: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Shopify Liquid"],
     },
-    { threshold: 0.1 }
-  );
-  
-  // Store the current ref value in a variable
-  const currentTechStackRef = techStackRef.current;
-  
-  if (currentTechStackRef) {
-    observer.observe(currentTechStackRef);
-  }
-  
-  return () => {
-    clearInterval(interval);
-    // Use the stored variable instead of techStackRef.current
-    if (currentTechStackRef) {
-      observer.unobserve(currentTechStackRef);
-    }
-  };
-}, [taglines.length]); // This dependency is now correct
+    {
+      label: "Backend",
+      color: "#76b852",
+      items: ["Node.js", "Django (Python)", "Express.js", "REST APIs", "JWT Authentication"],
+    },
+    {
+      label: "Database",
+      color: "#4db6ac",
+      items: ["MongoDB", "JSON"],
+    },
+    {
+      label: "Design & Tools",
+      color: "#e8a838",
+      items: ["UI/UX Design", "Wix Web Design", "Git / GitHub", "Postman (API)"],
+    },
+  ];
 
-  const getCategoryIcon = (category) => {
-    switch(category) {
-      case 'frontend':
-        return <Monitor size={14} />;
-      case 'backend':
-        return <Layers size={14} />;
-      case 'design':
-        return <Code size={14} />;
-      case 'database':
-        return <Layers size={14} />;
-      case 'data':
-        return <Zap size={14} />;
-      case 'api':
-        return <Zap size={14} />;
-      case 'tool':
-        return <GitBranch size={14} />;
-      default:
-        return <Code size={14} />;
-    }
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTaglineIndex((prev) => (prev + 1) % taglines.length);
+    }, 3000);
 
-  // Handle contact click for ProfileCard
-  const handleContactClick = () => {
-    // You can navigate to contact page or open contact modal
-    window.location.href = '/Contact';
-  };
+    setIsVisible(true);
+
+    setTimeout(() => {
+      if (servicesRef.current) servicesRef.current.classList.add('visible');
+    }, 400);
+
+    const currentRef = techStackRef.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) entry.target.classList.add('stack-visible'); },
+      { threshold: 0.1 }
+    );
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      clearInterval(interval);
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [taglines.length]);
+
+  const handleContactClick = () => { window.location.href = '/Contact'; };
 
   return (
     <>
+      {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className={`hero-section ${isVisible ? 'fade-in' : ''}`}>
-        <div className="hero-background">
-          <div className="hero-shapes">
-            <div className="hero-shape hero-shape-1"></div>
-            <div className="hero-shape hero-shape-2"></div>
-            <div className="hero-shape hero-shape-3"></div>
-          </div>
+        <div className="hero-bg-grid" />
+        <div className="hero-shapes">
+          <div className="hero-shape hero-shape-1" />
+          <div className="hero-shape hero-shape-2" />
+          <div className="hero-shape hero-shape-3" />
         </div>
-        
+
         <div className="hero-container">
           <div className="hero-left">
-            {/* Replace the old profile-container with new ProfileCard */}
             <ProfileCard
               name="Irfan Ishtiaq"
               title="Frontend Developer"
@@ -176,8 +150,14 @@ useEffect(() => {
           </div>
 
           <div className="hero-right">
+            <span className="available-badge">
+              <span className="badge-dot" />
+              Available for Work
+            </span>
+
             <h1 className="hero-heading">
-              <span className="terminal-cursor">$</span> Hi, I'm <span className="underline">Irfan Ishtiaq</span>
+              <span className="terminal-cursor">$</span>{' '}
+              Hi, I'm <span className="hero-name">Irfan Ishtiaq</span>
             </h1>
 
             <div className="animated-tagline">
@@ -187,8 +167,8 @@ useEffect(() => {
             </div>
 
             <p className="hero-description">
-              I build sleek, fast, scalable UIs that power modern web applications. 
-              Focused on creating exceptional digital experiences with clean code and 
+              I build sleek, fast, scalable UIs that power modern web applications.
+              Focused on creating exceptional digital experiences with clean code and
               attention to detail.
             </p>
 
@@ -204,19 +184,24 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* New Services Section */}
+      {/* ── Services ─────────────────────────────────────────────────── */}
       <section className="services-section" ref={servicesRef}>
         <div className="services-container">
-          <h2 className="hero-section-title">Services</h2>
-          <p className="hero-section-description">Specialized solutions I offer to bring your vision to life</p>
-          
+          <div className="section-header">
+            <h2 className="section-title">What I Do</h2>
+            <p className="section-description">Specialized solutions I offer to bring your vision to life</p>
+          </div>
+
           <div className="services-grid">
             {services.map((service, index) => (
-              <div 
-                className="service-card" 
+              <div
+                className="service-card"
                 key={index}
-                style={{ animationDelay: `${index * 0.1}s` }}
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
+                <span className="service-number">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
                 <div className="service-icon">{service.icon}</div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
@@ -226,43 +211,49 @@ useEffect(() => {
         </div>
       </section>
 
+      {/* ── Tech Stack ───────────────────────────────────────────────── */}
       <section className="tech-stack-section" ref={techStackRef}>
         <div className="container">
-          <h2 className="section-title">Tech Stack</h2>
-          <p className="section-description">Tools and Technologies I work with</p>
-          
-          <div className="tech-stack-container">
-            {techStack.map((tech, index) => (
-              <div 
-                className={`tech-item ${tech.category}`} 
-                key={index}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <span className="tech-icon">{getCategoryIcon(tech.category)}</span>
-                {tech.name}
+          <div className="section-header">
+            <h2 className="section-title">Tech Stack</h2>
+            <p className="section-description">Tools & technologies I work with</p>
+          </div>
+
+          <div className="tech-groups">
+            {techGroups.map((group) => (
+              <div className="tech-group" key={group.label}>
+                <div className="tech-group-label" style={{ '--group-color': group.color }}>
+                  <span className="group-dot" />
+                  {group.label}
+                </div>
+                <div className="tech-pills">
+                  {group.items.map((item) => (
+                    <span
+                      className="tech-pill"
+                      key={item}
+                      style={{ '--pill-color': group.color }}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ── Stats ────────────────────────────────────────────────────── */}
       <section className="quick-stats">
         <div className="container">
-          <h2 className="section-title">Track Record</h2>
-          <p className="section-description">Delivering exceptional results with precision and expertise.</p>
+          <div className="section-header">
+            <h2 className="section-title">Track Record</h2>
+            <p className="section-description">Delivering exceptional results with precision and expertise</p>
+          </div>
           <div className="stats-grid">
-            <div className="stat-card">
-              <div className="stat-number">10+</div>
-              <div className="stat-label">Projects Completed</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-number">12+</div>
-              <div className="stat-label">Clients</div>
-            </div>
+            <StatCard end={10} suffix="+" label="Projects Completed" delay={0}   />
+            <StatCard end={5}  suffix="+" label="Years Experience"   delay={200} />
+            <StatCard end={12} suffix="+" label="Happy Clients"      delay={400} />
           </div>
         </div>
       </section>

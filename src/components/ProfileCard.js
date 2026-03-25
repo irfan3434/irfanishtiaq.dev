@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useCallback, useMemo } from "react";
 import "./ProfileCard.css";
 
 const DEFAULT_BEHIND_GRADIENT =
-  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)";
+  "radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(195,90%,65%,var(--card-opacity)) 4%,hsla(200,75%,50%,calc(var(--card-opacity)*0.7)) 14%,transparent 55%),radial-gradient(75% 75% at 35% 20%,rgba(26,122,154,0.65) 0%,transparent 100%),radial-gradient(60% 60% at 65% 72%,rgba(18,78,102,0.55) 0%,transparent 100%),linear-gradient(150deg,#050d18 0%,#0d3346 40%,#1a627e 75%,#050d18 100%)";
 
 const DEFAULT_INNER_GRADIENT =
-  "linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)";
+  "linear-gradient(160deg,rgba(26,122,154,0.08) 0%,rgba(5,13,24,0.0) 60%)";
 
 const ANIMATION_CONFIG = {
   SMOOTH_DURATION: 600,
@@ -24,7 +24,7 @@ const round = (value, precision = 3) =>
 const adjust = (
   value,
   fromMin,
-  fromMax,
+  fromMax, 
   toMin,
   toMax
 ) =>
@@ -36,7 +36,7 @@ const easeInOutCubic = (x) =>
 const ProfileCardComponent = ({
   avatarUrl = "",
   iconUrl = "",
-  grainUrl = "",
+  grainUrl = "", 
   behindGradient,
   innerGradient,
   showBehindGradient = true,
@@ -295,16 +295,23 @@ const ProfileCardComponent = ({
           <div className="pc-shine" />
           <div className="pc-glare" />
           <div className="pc-content pc-avatar-content">
-            <img
-              className="avatar"
-              src={avatarUrl}
-              alt={`${name || "User"} avatar`}
-              loading="lazy"
-              onError={(e) => {
-                const target = e.target;
-                target.style.display = "none";
-              }}
-            />
+            <div className="pc-avatar-frame">
+              <img
+                src={avatarUrl}
+                alt={`${name || "User"} avatar`}
+                loading="lazy"
+                onError={(e) => {
+                  const target = e.target;
+                  target.style.display = "none";
+                }}
+              />
+            </div>
+            {showUserInfo && (
+              <div className="pc-name-section">
+                <div className="pc-name">{name}</div>
+                <div className="pc-card-title">{title}</div>
+              </div>
+            )}
             {showUserInfo && (
               <div className="pc-user-info">
                 <div className="pc-user-details">
@@ -322,7 +329,10 @@ const ProfileCardComponent = ({
                   </div>
                   <div className="pc-user-text">
                     <div className="pc-handle">@{handle}</div>
-                    <div className="pc-status">{status}</div>
+                    <div className="pc-status">
+                      <span className="pc-status-dot" />
+                      {status}
+                    </div>
                   </div>
                 </div>
                 <button
