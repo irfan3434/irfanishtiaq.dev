@@ -41,7 +41,7 @@ const ProfileCardComponent = ({
   innerGradient,
   showBehindGradient = true,
   className = "",
-  enableTilt = true,
+  enableTilt = true, 
   enableMobileTilt = false,
   mobileTiltSensitivity = 5,
   miniAvatarUrl,
@@ -174,7 +174,7 @@ const ProfileCardComponent = ({
         ANIMATION_CONFIG.SMOOTH_DURATION,
         event.offsetX,
         event.offsetY,
-        card,
+        card, 
         wrap
       );
       wrap.classList.remove("active");

@@ -1,9 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   ProfileCard — "Tech ID" redesign
-   Layout: flex column · circular avatar · name+title · info bar
+   ProfileCard
+   Layout: position-stack model · circular avatar · name+title · info bar
+   No !important — specificity handled through proper selector structure
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
+  /* Pointer tracking — set by JS via style.setProperty */
   --pointer-x: 50%;
   --pointer-y: 50%;
   --pointer-from-center: 0;
@@ -14,47 +16,45 @@
   --rotate-y: 0deg;
   --background-x: 50%;
   --background-y: 50%;
+
+  /* Asset URLs — set by JS */
   --grain: none;
   --icon: none;
   --behind-gradient: none;
   --inner-gradient: none;
 
-  /* Teal/cyan shimmer palette */
-  --sunpillar-1: hsl(185, 88%, 62%);
-  --sunpillar-2: hsl(193, 82%, 67%);
-  --sunpillar-3: hsl(200, 86%, 71%);
-  --sunpillar-4: hsl(208, 90%, 67%);
-  --sunpillar-5: hsl(190, 94%, 62%);
-  --sunpillar-6: hsl(197, 78%, 70%);
-  --sunpillar-clr-1: var(--sunpillar-1);
-  --sunpillar-clr-2: var(--sunpillar-2);
-  --sunpillar-clr-3: var(--sunpillar-3);
-  --sunpillar-clr-4: var(--sunpillar-4);
-  --sunpillar-clr-5: var(--sunpillar-5);
-  --sunpillar-clr-6: var(--sunpillar-6);
-
+  /* Card design tokens */
   --card-radius: 22px;
-  --avatar-size: 118px;
+  --avatar-size: 182px;
+
+  /* Shimmer palette */
+  --sunpillar-clr-1: hsl(185, 88%, 62%);
+  --sunpillar-clr-2: hsl(193, 82%, 67%);
+  --sunpillar-clr-3: hsl(200, 86%, 71%);
+  --sunpillar-clr-4: hsl(208, 90%, 67%);
+  --sunpillar-clr-5: hsl(190, 94%, 62%);
+  --sunpillar-clr-6: hsl(197, 78%, 70%);
 }
 
-/* ── Wrapper & behind-glow ───────────────────────────────────────────── */
+/* ── Wrapper & ambient glow ─────────────────────────────────────────── */
 .pc-card-wrapper {
   perspective: 600px;
-  transform: translate3d(0, 0, 0.1px);
   position: relative;
   touch-action: none;
+  transform: translate3d(0, 0, 0.1px);
 }
 
 .pc-card-wrapper::before {
   content: '';
   position: absolute;
-  inset: -14px;
-  border-radius: calc(var(--card-radius) + 10px);
+  inset: -16px;
+  border-radius: calc(var(--card-radius) + 14px);
   background-image: var(--behind-gradient);
   background-size: 100% 100%;
-  filter: blur(44px) opacity(0.55);
-  transform: scale(0.84) translate3d(0, 0, 0.1px);
+  filter: blur(44px) opacity(0.5);
+  transform: scale(0.82) translate3d(0, 0, 0.1px);
   transition: filter 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
 }
 
 .pc-card-wrapper:hover,
@@ -64,42 +64,46 @@
 
 .pc-card-wrapper:hover::before,
 .pc-card-wrapper.active::before {
-  filter: blur(50px) opacity(1);
-  transform: scale(0.94) translate3d(0, 0, 0.1px);
+  filter: blur(52px) opacity(1);
+  transform: scale(0.96) translate3d(0, 0, 0.1px);
 }
 
-/* ── Card shell ──────────────────────────────────────────────────────── */
+/* ── Card shell ─────────────────────────────────────────────────────── */
+/*
+  Using position: relative instead of display: grid eliminates the need
+  for grid-area overrides on every child. Stacking is done via
+  position: absolute on .pc-inside and all siblings inside it.
+*/
 .pc-card {
-  height: 70vh;
-  max-height: 460px;
-  min-height: 380px;
-  display: grid;
-  aspect-ratio: 0.68;
-  border-radius: var(--card-radius);
   position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 13;
+  max-height: 460px;
+  min-height: 370px;
+  border-radius: var(--card-radius);
   overflow: hidden;
-  transition: transform 1s ease;
   transform: translate3d(0, 0, 0.1px) rotateX(0deg) rotateY(0deg);
+  transition: transform 1s ease;
 
-  /* Teal gradient border (shows as 1-2px edge around pc-inside) */
+  /* Animated gradient border — shows as 1.5px edge around .pc-inside */
   background: linear-gradient(
     145deg,
-    #1a7a9a 0%,
-    #0e3a52 25%,
-    #124e66 50%,
-    #0a2535 75%,
-    #1a7a9a 100%
+    hsl(195, 70%, 40%) 0%,
+    hsl(208, 65%, 18%) 30%,
+    hsl(212, 58%, 13%) 55%,
+    hsl(200, 60%, 22%) 78%,
+    hsl(195, 70%, 40%) 100%
   );
-  background-size: 200% 200%;
-  animation: border-rotate 6s linear infinite;
+  background-size: 300% 300%;
+  animation: pc-border-shift 8s ease infinite;
 
   box-shadow:
-    0 24px 48px rgba(0, 0, 0, 0.55),
-    0 8px 16px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 24px 64px rgba(0, 0, 0, 0.65),
+    0 8px 24px  rgba(0, 0, 0, 0.40),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
 }
 
-@keyframes border-rotate {
+@keyframes pc-border-shift {
   0%   { background-position: 0%   50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0%   50%; }
@@ -111,37 +115,29 @@
   transform: translate3d(0, 0, 0.1px) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
 }
 
-/* Everything inside the card stacks in the same grid cell */
-.pc-card > * {
-  grid-area: 1/-1;
-  border-radius: var(--card-radius);
-}
-
-/* ── Dark interior ───────────────────────────────────────────────────── */
+/* ── Dark interior ──────────────────────────────────────────────────── */
 .pc-inside {
   position: absolute;
-  inset: 1.5px;               /* exposes gradient border edge */
-  border-radius: calc(var(--card-radius) - 1px);
-  background: #07111d;
+  inset: 1.5px;
+  border-radius: calc(var(--card-radius) - 1.5px);
+  background-color: #070f1c;
   background-image:
-    /* ambient teal glows */
-    radial-gradient(ellipse 70% 50% at 80% 10%, rgba(26, 122, 154, 0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 15% 85%, rgba(18, 78, 102, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 50% at 78% 8%,  rgba(26, 122, 154, 0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 55% at 18% 92%, rgba(15, 68, 95, 0.10)   0%, transparent 65%),
     var(--inner-gradient);
   overflow: hidden;
-  transform: translate3d(0, 0, 0.01px);
 }
 
-/* Dot-grid texture */
+/* Subtle dot-grid texture */
 .pc-inside::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(26, 122, 154, 0.18) 1px, transparent 1px);
-  background-size: 20px 20px;
-  border-radius: inherit;
+  background-image: radial-gradient(circle, rgba(26, 122, 154, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
   pointer-events: none;
-  opacity: 0.7;
+  opacity: 0.6;
+  z-index: 0;
 }
 
 /* Top accent stripe */
@@ -149,60 +145,70 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1.5px;
+  left: 12%;
+  right: 12%;
+  height: 1px;
   background: linear-gradient(
     90deg,
-    transparent 0%,
-    rgba(26, 122, 154, 0.7) 30%,
-    rgba(88, 210, 235, 0.9) 50%,
-    rgba(26, 122, 154, 0.7) 70%,
-    transparent 100%
+    transparent,
+    rgba(88, 210, 235, 0.55) 38%,
+    rgba(160, 236, 252, 0.92) 50%,
+    rgba(88, 210, 235, 0.55) 62%,
+    transparent
   );
-  border-radius: 1px;
   pointer-events: none;
+  z-index: 1;
 }
 
-/* ── Shimmer (hover holographic effect) ──────────────────────────────── */
+/* ── Shimmer (holographic effect on hover) ──────────────────────────── */
 .pc-shine {
   position: absolute;
-  inset: 1.5px;
-  border-radius: calc(var(--card-radius) - 1px);
+  inset: 0;
+  border-radius: inherit;
+  z-index: 2;
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+  animation: pc-holo 18s linear infinite;
+
+  --space: 5%;
+  --angle: -45deg;
+
   mask-image: var(--icon);
   mask-mode: luminance;
   mask-repeat: repeat;
   mask-size: 150%;
   mask-position:
-    top calc(200% - (var(--background-y) * 5))
+    top  calc(200% - (var(--background-y) * 5))
     left calc(100% - var(--background-x));
-  filter: brightness(0.55) contrast(1.4) saturate(0.3) opacity(0.45);
-  animation: holo-bg 18s linear infinite;
-  mix-blend-mode: color-dodge;
-  z-index: 2;
 
-  --space: 5%;
-  --angle: -45deg;
+  filter: brightness(0.5) contrast(1.4) saturate(0.3) opacity(0.4);
+
   background-image:
-    repeating-linear-gradient(0deg,
+    repeating-linear-gradient(
+      0deg,
       var(--sunpillar-clr-1) calc(var(--space) * 1),
       var(--sunpillar-clr-2) calc(var(--space) * 2),
       var(--sunpillar-clr-3) calc(var(--space) * 3),
       var(--sunpillar-clr-4) calc(var(--space) * 4),
       var(--sunpillar-clr-5) calc(var(--space) * 5),
       var(--sunpillar-clr-6) calc(var(--space) * 6),
-      var(--sunpillar-clr-1) calc(var(--space) * 7)),
-    repeating-linear-gradient(var(--angle),
+      var(--sunpillar-clr-1) calc(var(--space) * 7)
+    ),
+    repeating-linear-gradient(
+      var(--angle),
       #060f1c 0%,
       hsl(195, 22%, 52%) 3.8%,
       hsl(195, 38%, 60%) 4.5%,
       hsl(195, 22%, 52%) 5.2%,
       #060f1c 10%,
-      #060f1c 12%),
-    radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y),
-      hsla(0, 0%, 0%, 0.1) 12%,
+      #060f1c 12%
+    ),
+    radial-gradient(
+      farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      hsla(0, 0%, 0%, 0.1)  12%,
       hsla(0, 0%, 0%, 0.15) 20%,
-      hsla(0, 0%, 0%, 0.25) 120%);
+      hsla(0, 0%, 0%, 0.25) 120%
+    );
   background-position: 0 var(--background-y), var(--background-x) var(--background-y), center;
   background-blend-mode: color, hard-light;
   background-size: 500% 500%, 300% 300%, 200% 200%;
@@ -214,237 +220,206 @@
   animation: none;
 }
 
-/* ── Glare overlay ───────────────────────────────────────────────────── */
-.pc-glare {
-  position: absolute;
-  inset: 1.5px;
-  border-radius: calc(var(--card-radius) - 1px);
-  background-image: radial-gradient(
-    farthest-corner circle at var(--pointer-x) var(--pointer-y),
-    hsla(195, 45%, 72%, 0.38) 12%,
-    hsla(210, 55%, 18%, 0.55) 90%
-  );
-  mix-blend-mode: overlay;
-  filter: brightness(0.9) contrast(1.1);
-  z-index: 3;
-  transform: translate3d(0, 0, 1px);
+@keyframes pc-holo {
+  0%   { background-position: 0 var(--background-y), 0%  0%,  center; }
+  100% { background-position: 0 var(--background-y), 90% 90%, center; }
 }
 
-/* ── Content area (flex column) ──────────────────────────────────────── */
+/* ── Glare overlay ──────────────────────────────────────────────────── */
+.pc-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 3;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: radial-gradient(
+    farthest-corner circle at var(--pointer-x) var(--pointer-y),
+    hsla(195, 50%, 75%, 0.34) 12%,
+    hsla(210, 55%, 18%, 0.50) 90%
+  );
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* ── Content layer ──────────────────────────────────────────────────── */
+/*
+  Sits above shine (z-index 2) and glare (z-index 3).
+  Uses transform for the parallax tilt feel.
+*/
 .pc-content.pc-avatar-content {
-  position: absolute !important;
-  inset: 1.5px;
-  border-radius: calc(var(--card-radius) - 1px);
-  display: flex !important;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 2rem 1.2rem 1rem;
+  padding: 2rem 1.25rem 1rem;
   box-sizing: border-box;
-  mix-blend-mode: normal;
-  overflow: visible;
   z-index: 5;
   transform: translate3d(
     calc(var(--pointer-from-left) * -5px + 2.5px),
     calc(var(--pointer-from-top)  * -5px + 2.5px),
     0.1px
-  ) !important;
+  );
 }
 
-/* Remove old blur pseudo-element */
-.pc-avatar-content::before { display: none; }
-
-/* ── Circular avatar frame ───────────────────────────────────────────── */
+/* ── Circular avatar frame ──────────────────────────────────────────── */
 .pc-avatar-frame {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
   width: var(--avatar-size);
   height: var(--avatar-size);
-  border-radius: 50% !important;
+  border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  position: relative !important;
-  grid-area: unset !important;
+  position: relative;
   margin-bottom: 1.1rem;
-
-  /* Glowing ring */
-  border: 2.5px solid rgba(26, 150, 180, 0.85);
+  border: 2px solid rgba(30, 155, 188, 0.8);
   box-shadow:
-    0 0 0   5px  rgba(18,  78, 102, 0.22),
-    0 0  18px    rgba(26, 122, 154, 0.55),
-    0 0  38px    rgba(18,  78, 102, 0.28),
-    0 6px 20px   rgba(0,   0,   0, 0.45);
-  animation: avatar-breathe 3.5s ease-in-out infinite;
+    0 0 0 4px  rgba(18, 78, 102, 0.22),
+    0 0 20px   rgba(26, 122, 154, 0.52),
+    0 0 44px   rgba(18, 78, 102, 0.26),
+    0 8px 24px rgba(0, 0, 0, 0.52);
+  animation: pc-avatar-glow 3.5s ease-in-out infinite;
 }
 
-@keyframes avatar-breathe {
+@keyframes pc-avatar-glow {
   0%, 100% {
     box-shadow:
-      0 0 0   5px rgba(18,  78, 102, 0.22),
-      0 0  18px   rgba(26, 122, 154, 0.55),
-      0 0  38px   rgba(18,  78, 102, 0.28),
-      0 6px 20px  rgba(0,   0,   0, 0.45);
+      0 0 0 4px  rgba(18, 78, 102, 0.22),
+      0 0 20px   rgba(26, 122, 154, 0.52),
+      0 0 44px   rgba(18, 78, 102, 0.26),
+      0 8px 24px rgba(0, 0, 0, 0.52);
   }
   50% {
     box-shadow:
-      0 0 0   6px rgba(18,  78, 102, 0.32),
-      0 0  26px   rgba(26, 122, 154, 0.75),
-      0 0  52px   rgba(18,  78, 102, 0.38),
-      0 6px 24px  rgba(0,   0,   0, 0.50);
+      0 0 0 5px  rgba(18, 78, 102, 0.32),
+      0 0 28px   rgba(26, 122, 154, 0.74),
+      0 0 58px   rgba(18, 78, 102, 0.36),
+      0 8px 28px rgba(0, 0, 0, 0.58);
   }
 }
 
-/* Avatar image fills the circular frame */
 .pc-avatar-frame img {
-  display: block !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  bottom: unset !important;
-  width: 100% !important;
-  height: 100% !important;
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: 0 !important;
-  grid-area: unset !important;
-  transform: translate3d(0, 0, 1px) !important;
-  opacity: 1 !important;
 }
 
-/* ── Name & title ────────────────────────────────────────────────────── */
+/* ── Name & title ───────────────────────────────────────────────────── */
 .pc-name-section {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
   width: 100%;
   text-align: center;
   flex-shrink: 0;
-  position: relative !important;
-  grid-area: unset !important;
   padding: 0 0.5rem;
 }
 
 .pc-name {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #f0f4f8;
+  color: #edf3fa;
   letter-spacing: 0.01em;
   line-height: 1.2;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-  grid-area: unset !important;
-  display: block !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
 }
 
 .pc-card-title {
-  font-size: 0.67rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: rgba(88, 210, 235, 0.88);
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-  display: block !important;
-  grid-area: unset !important;
+  letter-spacing: 0.18em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
 }
 
-/* Decorative teal rule below title */
+/* Decorative rule below title */
 .pc-name-section::after {
   content: '';
   display: block;
-  width: 38px;
+  width: 36px;
   height: 1.5px;
-  margin-top: 0.6rem;
+  margin-top: 0.55rem;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(88, 210, 235, 0.75) 40%,
-    rgba(26, 122, 154, 0.9) 50%,
-    rgba(88, 210, 235, 0.75) 60%,
+    rgba(88, 210, 235, 0.62) 35%,
+    rgba(160, 236, 252, 0.92) 50%,
+    rgba(88, 210, 235, 0.62) 65%,
     transparent
   );
   border-radius: 1px;
 }
 
-/* ── Info bar (pushed to bottom via margin-top:auto) ─────────────────── */
+/* ── Bottom info bar ────────────────────────────────────────────────── */
 .pc-user-info {
-  margin-top: auto !important;
-  position: relative !important;
-  inset: unset !important;
-  bottom: unset !important;
-  left: unset !important;
-  right: unset !important;
-  display: flex !important;
+  margin-top: auto;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  flex-direction: column;
   box-sizing: border-box;
-  background: rgba(6, 14, 26, 0.72);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(26, 122, 154, 0.24);
-  border-radius: 13px !important;
+  background: rgba(5, 11, 22, 0.76);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(26, 122, 154, 0.22);
+  border-radius: 12px;
   padding: 10px 12px;
   pointer-events: auto;
   flex-shrink: 0;
-  grid-area: unset !important;
+  gap: 10px;
 }
 
 .pc-user-details {
-  display: flex !important;
+  display: flex;
   align-items: center;
-  gap: 9px;
-  grid-area: unset !important;
+  gap: 40px;
 }
 
 .pc-mini-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50% !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   overflow: hidden;
-  border: 1.5px solid rgba(26, 122, 154, 0.5);
+  border: 1.5px solid rgba(26, 122, 154, 0.45);
   flex-shrink: 0;
-  display: block !important;
-  grid-area: unset !important;
 }
 
 .pc-mini-avatar img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 50% !important;
-  grid-area: unset !important;
-  position: static !important;
-  transform: none !important;
-  opacity: 1 !important;
 }
 
 .pc-user-text {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
-  gap: 4px;
-  grid-area: unset !important;
+  gap: 3px;
 }
 
 .pc-handle {
   font-size: 12.5px;
   font-weight: 600;
-  color: rgba(240, 244, 248, 0.9);
+  color: rgba(230, 242, 252, 0.88);
   line-height: 1;
   letter-spacing: 0.01em;
-  display: block !important;
-  grid-area: unset !important;
 }
 
 .pc-status {
-  display: flex !important;
+  display: flex;
   align-items: center;
   gap: 5px;
   font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(230, 242, 252, 0.50);
   line-height: 1;
-  grid-area: unset !important;
 }
 
 .pc-status-dot {
@@ -453,51 +428,56 @@
   border-radius: 50%;
   background: #22d98a;
   flex-shrink: 0;
-  display: block !important;
-  grid-area: unset !important;
   box-shadow: 0 0 6px rgba(34, 217, 138, 0.7);
-  animation: status-pulse 2.2s ease-in-out infinite;
+  animation: pc-status-pulse 2.2s ease-in-out infinite;
 }
 
-@keyframes status-pulse {
-  0%, 100% { box-shadow: 0 0  4px rgba(34, 217, 138, 0.5); }
-  50%       { box-shadow: 0 0 10px rgba(34, 217, 138, 0.9); }
+@keyframes pc-status-pulse {
+  0%, 100% { box-shadow: 0 0  4px rgba(34, 217, 138, 0.50); }
+  50%       { box-shadow: 0 0 10px rgba(34, 217, 138, 0.92); }
 }
 
-/* ── Contact button ──────────────────────────────────────────────────── */
+/* ── Contact button ─────────────────────────────────────────────────── */
 .pc-contact-btn {
-  background: linear-gradient(135deg, rgba(18, 78, 102, 0.9) 0%, rgba(26, 122, 154, 0.8) 100%);
-  border: 1px solid rgba(88, 175, 209, 0.45);
+  background: linear-gradient(
+    135deg,
+    rgba(18, 80, 106, 0.96) 0%,
+    rgba(26, 122, 154, 0.88) 100%
+  );
+  border: 1px solid rgba(88, 175, 209, 0.38);
   border-radius: 9px;
-  padding: 8px 14px;
+  padding: 7px 14px;
   font-size: 11.5px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.93);
   cursor: pointer;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
   white-space: nowrap;
   flex-shrink: 0;
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
-  display: block !important;
-  grid-area: unset !important;
 }
 
 .pc-contact-btn:hover {
-  background: linear-gradient(135deg, rgba(26, 100, 130, 0.95) 0%, rgba(35, 145, 175, 0.9) 100%);
-  box-shadow: 0 4px 16px rgba(18, 78, 102, 0.55), 0 0 0 1px rgba(88, 210, 235, 0.3);
+  background: linear-gradient(
+    135deg,
+    rgba(22, 100, 132, 1) 0%,
+    rgba(34, 148, 180, 0.96) 100%
+  );
+  box-shadow:
+    0 4px 18px rgba(18, 78, 102, 0.6),
+    0 0 0 1px rgba(88, 210, 235, 0.26);
   transform: translateY(-1px);
 }
 
-/* ── Keyframes ───────────────────────────────────────────────────────── */
-@keyframes holo-bg {
-  0%   { background-position: 0 var(--background-y), 0   0,   center; }
-  100% { background-position: 0 var(--background-y), 90% 90%, center; }
+.pc-contact-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
-/* ── Hero integration ────────────────────────────────────────────────── */
+/* ── Hero integration ───────────────────────────────────────────────── */
 .hero-left .profile-card-custom {
   width: 100%;
-  max-width: 380px;
+  max-width: 320px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -506,29 +486,29 @@
 
 .hero-left .profile-card-custom .pc-card {
   width: 100%;
-  max-height: 430px;
-  min-height: 360px;
+  max-height: 440px;
+  min-height: 355px;
 }
 
-/* ── Responsive ──────────────────────────────────────────────────────── */
+/* ── Responsive ─────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  :root { --avatar-size: 100px; }
+  :root {
+    --avatar-size: 98px;
+  }
 
   .pc-card {
-    height: 56vh;
-    max-height: 390px;
+    max-height: 400px;
     min-height: 320px;
   }
 
   .pc-content.pc-avatar-content {
-    padding: 1.5rem 1rem 0.85rem;
+    padding: 1.6rem 1rem 0.9rem;
   }
 
   .pc-name        { font-size: 1.1rem; }
-  .pc-card-title  { font-size: 0.62rem; }
+  .pc-card-title  { font-size: 0.61rem; }
   .pc-handle      { font-size: 11.5px; }
   .pc-status      { font-size: 10px; }
-
   .pc-user-info   { padding: 8px 10px; }
   .pc-mini-avatar { width: 32px; height: 32px; }
 
@@ -538,31 +518,31 @@
   }
 
   .hero-left .profile-card-custom .pc-card {
-    max-height: 370px;
-    min-height: 310px;
+    max-height: 385px;
+    min-height: 305px;
   }
 }
 
 @media (max-width: 480px) {
-  :root { --avatar-size: 88px; }
+  :root {
+    --avatar-size: 84px;
+  }
 
   .pc-card {
-    height: 50vh;
-    max-height: 340px;
+    max-height: 360px;
     min-height: 290px;
   }
 
   .pc-content.pc-avatar-content {
-    padding: 1.2rem 0.9rem 0.75rem;
+    padding: 1.3rem 0.9rem 0.8rem;
   }
 
   .pc-name        { font-size: 1rem; }
-  .pc-card-title  { font-size: 0.58rem; letter-spacing: 0.13em; }
+  .pc-card-title  { font-size: 0.57rem; letter-spacing: 0.14em; }
   .pc-handle      { font-size: 11px; }
   .pc-status      { font-size: 9.5px; }
   .pc-status-dot  { width: 5px; height: 5px; }
-
-  .pc-user-info   { padding: 7px 9px; border-radius: 10px !important; }
+  .pc-user-info   { padding: 7px 9px; border-radius: 10px; }
   .pc-mini-avatar { width: 28px; height: 28px; }
 
   .pc-contact-btn {
@@ -572,19 +552,27 @@
   }
 
   .hero-left .profile-card-custom .pc-card {
-    max-height: 330px;
-    min-height: 270px;
+    max-height: 345px;
+    min-height: 278px;
+  }
+  .pc-user-details {
+    gap: 10px;
   }
 }
 
 @media (max-width: 360px) {
-  :root { --avatar-size: 76px; }
+  :root {
+    --avatar-size: 74px;
+  }
 
-  .pc-card        { max-height: 300px; min-height: 260px; }
+  .pc-card {
+    max-height: 314px;
+    min-height: 262px;
+  }
+
   .pc-name        { font-size: 0.9rem; }
   .pc-card-title  { display: none; }
   .pc-name-section::after { display: none; }
-
   .pc-user-info   { padding: 6px 8px; }
   .pc-mini-avatar { width: 24px; height: 24px; }
   .pc-handle      { font-size: 10.5px; }
@@ -597,7 +585,7 @@
   }
 
   .hero-left .profile-card-custom .pc-card {
-    max-height: 290px;
-    min-height: 250px;
+    max-height: 298px;
+    min-height: 252px;
   }
 }

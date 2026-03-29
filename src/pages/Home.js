@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight, ShoppingBag, Layout, Smartphone, Server, Users, BarChart, Database, FileText } from 'lucide-react';
 import './Home.css';
-import profileImage from '../assets/profile1.png';
+import profileImage from '../assets/profilepic.webp';
 import ProfileCard from '../components/ProfileCard';
 
 /* ── Count-up stat card ──────────────────────────────────────────────── */
