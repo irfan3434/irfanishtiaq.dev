@@ -170,9 +170,7 @@ const About = () => {
             <div className="profile-accent"></div> 
           </motion.div>
             <motion.p className="about-summary" initial={{ opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              A skilled Frontend Developer, React Developer, and Shopify Expert with expertise in creating responsive, 
-              user-friendly web interfaces, developing custom Shopify themes, and providing React applications. 
-              Proficient in leveraging modern technologies to optimize functionality and enhance user experiences.
+              Senior Frontend Engineer with 6+ years building production React and Next.js applications across SaaS portals, corporate platforms, and e-commerce. Specializes in component architecture, performance optimization, and translating Figma designs into accessible, pixel-perfect interfaces. Recently extended stack into React Native for cross-platform delivery.
             </motion.p>
         
            
@@ -223,16 +221,17 @@ const About = () => {
                   <div className="timeline-content">
                     <div className="job-item">
                       <div className="job-header">
-                        <h3>Senior Frontend Developer | IT Consultant</h3>
+                        <h3>Senior Frontend Developer</h3>
                         <span className="job-date">Oct 2023 – Present</span>
                       </div>
-                      <p className="job-company"><Globe size={16} /> FCEC (Riyadh, KSA)</p>
+                      <p className="job-company"><Globe size={16} /> Future Cities for Engineering Consultations (Riyadh, KSA)</p>
                       <ul>
-                        <li>Developed a secure Employee Portal utilizing React, Node.js, Django, and JWT Authentication, supporting 50+ employees with features like role-based access control, personalized dashboards, and real-time updates, resulting in a 25% increase in operational efficiency.</li>
-                        <li>Designed, developed, and optimized responsive corporate websites and e-commerce stores, leveraging Shopify Liquid, React, Wix and modern JavaScript, including: https://www.fcec.sa/, https://www.futurecode.sa/, https://aqeaw.com/, https://kheirfragrances.com/,  https://www.fceco.sa/ and https://www.maisonroyah.com/.</li>
-                        <li>Improved website performance metrics (Google PageSpeed Insights) by 35%, significantly boosting user engagement and organic traffic.</li>
-                        <li>Conducted thorough analysis and strategic recommendations for IT infrastructure, reducing downtime by 20% through enhanced system reliability and optimized deployments.</li>
-                        <li>Ensured secure, high-performance websites and regulatory compliance.</li>
+                        <li>Architected and shipped an internal Employee Portal (React + Node.js + Django, JWT auth) with a role-based access control system spanning 47 granular permissions, personalized dashboards, leave management, document expiry tracking, and internal messaging.</li>
+                       <li>Built a full budget-lifecycle module with multi-stage approval workflows, versioning, audit trails, and typed sub-items (iqama renewals, medical insurance, business trips) including expense tracking and increment-request flows.</li>
+                       <li>Delivered 6 production web properties including aqeaw.com (bilingual Next.js 14 portfolio), fcec.sa and futurecode.sa (bilingual corporate sites), fceco.sa, and Kheir Fragrances (Shopify Liquid e-commerce); deployed on Vercel with custom DNS configuration.</li>
+                       <li>Built and maintained three production bilingual Arabic/English sites with full RTL support in Next.js App Router — bidirectional layout, locale-aware routing, and Arabic font loading.</li>
+                       <li>Achieved Lighthouse scores of 85–89 Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices across production deployments (fcec.sa, fceco.sa, futurecode.sa) via code splitting, next/image optimization, and deferred third-party scripts.</li>
+                      <li>Prototyped a React Native CLI application with FlatList virtualization, React Navigation, form validation, and search/filter, targeting Android.</li>
                       </ul>
                     </div>
                   </div>
@@ -248,10 +247,9 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> KreativStorm (Berlin, Germany)</p>
                       <ul>
-                        <li>Designed, built, and optimized modern web applications using React, JavaScript (ES6+), HTML5, CSS3, and REST APIs, achieving over 40% improvement in load times.</li>
-                        <li>Translated UI/UX designs from tools like Figma, Adobe XD, and Photoshop into responsive and pixel-perfect frontend code, significantly enhancing client satisfaction and project turnaround by 30%.</li>
-                        <li>Implemented SEO best practices and responsive web design principles across multiple projects, boosting client site traffic by an average of 25%.</li>
-                        <li>Actively designed and maintained solutions targeting new applications.</li>
+                        <li>Built responsive React + ES6 interfaces consuming REST APIs across multiple client projects.</li>
+                        <li>Translated Figma and Adobe XD designs into pixel-perfect React components, contributing to a shared component library.</li>
+                        <li>Applied technical SEO fundamentals (semantic HTML, meta tags, structured data, sitemap generation) and mobile-first responsive layouts.</li>
                       </ul>
                     </div>
                   </div>
@@ -267,10 +265,9 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> Crewlogix (Lahore, Pakistan)</p>
                       <ul>
-                        <li>Developed and maintained custom Shopify themes and responsive frontend interfaces, contributing to increased e-commerce sales by approximately 20% year-over-year.</li>
-                        <li>Enhanced client websites’ responsiveness and accessibility, reducing bounce rate by 18% through optimized UI implementations.</li>
-                        <li>Provided ongoing website maintenance, bug troubleshooting, and performance optimization, reducing reported client issues by 30%.</li>
-                        <li>Developed and implemented analytical capabilities and applications.</li>
+                         <li>Built and maintained custom Shopify themes in Liquid and React-based client interfaces across multiple stores.</li>
+                         <li>Collaborated with designers and backend engineers in agile sprints; participated in code reviews and PR workflows.</li>
+                         <li>Integrated third-party Shopify apps and custom Liquid sections for client stores, including product filters, review widgets, and conversion-focused landing pages.</li>
                       </ul>
                     </div>
                   </div>
@@ -286,10 +283,9 @@ const About = () => {
                       </div>
                       <p className="job-company"><Globe size={16} /> TEXOL (Dammam, KSA)</p>
                       <ul>
-                        <li>Developed and maintained custom Shopify themes and responsive frontend interfaces, contributing to increased e-commerce sales by approximately 20% year-over-year.</li>
-                        <li>Enhanced client websites’ responsiveness and accessibility, reducing bounce rate by 18% through optimized UI implementations.</li>
-                        <li>Provided ongoing website maintenance, bug troubleshooting, and performance optimization, reducing reported client issues by 30%.</li>
-                        <li>Implemented Responsive design principles.</li>
+                        <li>Built and maintained corporate websites in HTML5, CSS3, and JavaScript; handled cross-browser compatibility and legacy browser support.</li>
+                        <li>Integrated CMS workflows and managed content updates across multiple client sites.</li>
+                        <li>Supported ongoing maintenance, bug triage, and deployment.</li>
                       </ul>
                     </div>
                   </div>

@@ -138,7 +138,7 @@ const HeroSection = () => {
           <div className="hero-left">
             <ProfileCard
               name="Irfan Ishtiaq"
-              title="Frontend Developer"
+              title="Senior Frontend Developer"
               handle="irfanishtiaq"
               status="Available for Projects"
               contactText="Contact Me"

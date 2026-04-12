@@ -139,7 +139,7 @@ const Resume = () => (
           <h3>Senior Frontend Developer | IT Consultant</h3>
           <span className="job-duration">Oct 2023 – Present</span>
         </div>
-        <div className="company-name">FCEC (Riyadh, KSA)</div>
+        <div className="company-name">Future Cities for Engineering Consultations (Riyadh, KSA)</div>
         <ul className="job-responsibilities">
           <li>Architected and shipped an internal Employee Portal (React + Node.js + Django, JWT auth) with a role-based access control system spanning 47 granular permissions, personalized dashboards, leave management, document expiry tracking, and internal messaging.</li>
           <li>Built a full budget-lifecycle module with multi-stage approval workflows, versioning, audit trails, and typed sub-items (iqama renewals, medical insurance, business trips) including expense tracking and increment-request flows.</li>
