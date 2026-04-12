@@ -26,7 +26,7 @@ const About = () => {
 
     { 
       id: 1, 
-      title: "BS (Electrical Engineering)", 
+      title: "Bachelor of Science (Electrical Engineering)", 
       issuer: "University of Engineering and Technology, Taxila", 
       date: "Sep 2014",
       image: Image11,
@@ -34,11 +34,11 @@ const About = () => {
     },
     { 
       id: 2, 
-      title: "Frontend Web Development", 
+      title: "Master of Science (Computer Science)", 
       issuer: "University Kuala Lumpur", 
       date: "June 2021",
       image: Image22,
-      description: "Master of Engineering Technology (Electric and Electronic)"
+      description: "Master of Science in Computer Science"
     },
     { 
       id: 3, 
@@ -309,7 +309,7 @@ const About = () => {
                     <GraduationCap size={32} />
                   </div>
                   <div className="edu-content">
-                    <h3>Master of Engineering Technology</h3>
+                    <h3>Master of Science (Computer Science)</h3>
                     <p className="edu-sub">Universiti Kuala Lumpur, Malaysia</p>
                     <span className="edu-date">Feb 2019 – Jun 2021</span>
                     <p className="edu-desc">
@@ -323,7 +323,7 @@ const About = () => {
                     <GraduationCap size={32} />
                   </div>
                   <div className="edu-content">
-                    <h3>BSc Electrical Engineering</h3>
+                    <h3>Bachelor of Science (Electrical Engineering)</h3>
                     <p className="edu-sub">University of Engineering and Technology, Taxila, Pakistan</p>
                     <span className="edu-date">Nov 2010 – Aug 2014</span>
                     <p className="edu-desc">

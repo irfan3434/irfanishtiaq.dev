@@ -55,17 +55,19 @@ const HeroSection = () => {
 
   const taglines = [
     "Creative Frontend Developer",
-    "React & Shopify Expert",
+    "React & Next.js Expert",
+    "Shopify Theme Specialist",
     "Pixel-perfect UI Engineer",
     "Clean Code Craftsman",
     "Performance-Obsessed Builder",
   ];
 
   const services = [
-    { title: "Custom Shopify Theme Development",       description: "Tailor-made Shopify themes that reflect your brand identity and enhance customer experience.",    icon: <ShoppingBag size={22} /> },
+    
     { title: "Modern Frontend Development",            description: "Interactive and dynamic user interfaces using React, HTML, CSS, and JavaScript.",                   icon: <Layout size={22} /> },
     { title: "Responsive UI Design & Implementation",  description: "Pixel-perfect interfaces that work flawlessly across all devices and screen sizes.",               icon: <Smartphone size={22} /> },
     { title: "Full-Stack Web App Development",         description: "End-to-end solutions using Node.js and Django for robust web applications.",                       icon: <Server size={22} /> },
+    { title: "Custom Shopify Theme Development",       description: "Tailor-made Shopify themes that reflect your brand identity and enhance customer experience.",    icon: <ShoppingBag size={22} /> },
     { title: "Role-Based Dashboards & Authentication", description: "Secure user management systems with custom permission structures.",                                icon: <Users size={22} /> },
     { title: "Performance Optimization & SEO",         description: "Accelerate load times and improve search engine visibility for your applications.",                icon: <BarChart size={22} /> },
     { title: "Headless CMS & REST API Integrations",   description: "Seamless connections between your frontend and various data sources.",                             icon: <Database size={22} /> },
