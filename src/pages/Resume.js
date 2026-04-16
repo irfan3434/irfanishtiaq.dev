@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import './Resume.css';
-import  myResume from '../assets/Irfan_Ishtiaq_Resume.pdf'
+import  myResume from '../assets/Irfan_Ishtiaq_Resume.pdf';
 
 // Skills Section Component
 const SkillsSection = () => {
@@ -144,7 +144,7 @@ const Resume = () => (
           <li>Architected and shipped an internal Employee Portal (React + Node.js + Django, JWT auth) with a role-based access control system spanning 47 granular permissions, personalized dashboards, leave management, document expiry tracking, and internal messaging.</li>
           <li>Built a full budget-lifecycle module with multi-stage approval workflows, versioning, audit trails, and typed sub-items (iqama renewals, medical insurance, business trips) including expense tracking and increment-request flows.</li>
           <li>Delivered 6 production web properties including aqeaw.com (bilingual Next.js 14 portfolio), fcec.sa and futurecode.sa (bilingual corporate sites), fceco.sa, and Kheir Fragrances (Shopify Liquid e-commerce); deployed on Vercel with custom DNS configuration.</li>
-          <li>Built and maintained three production bilingual Arabic/English sites with full RTL support in Next.js App Router — bidirectional layout, locale-aware routing, and Arabic font loading.</li>
+          <li>Built the full-stack backend (Express + MongoDB Atlas on Heroku) with automated Outlook email notifications and a password-protected admin dashboard with search, filters, detail views, and Excel export for the review committee.</li>
           <li>Achieved Lighthouse scores of 85–89 Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices across production deployments (fcec.sa, fceco.sa, futurecode.sa) via code splitting, next/image optimization, and deferred third-party scripts.</li>
           <li>Prototyped a React Native CLI application with FlatList virtualization, React Navigation, form validation, and search/filter, targeting Android.</li>
         </ul>
