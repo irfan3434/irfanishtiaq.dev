@@ -157,7 +157,7 @@ const Resume = () => (
         </div>
         <div className="company-name">KreativStorm (Berlin, Germany)</div>
         <ul className="job-responsibilities">
-          <li>Built responsive React + ES6 interfaces consuming REST APIs across multiple client projects.</li>
+          <li>Engineered and optimized responsive React + ES6 interfaces consuming REST APIs across multiple client projects.</li>
           <li>Translated Figma and Adobe XD designs into pixel-perfect React components, contributing to a shared component library.</li>
           <li>Applied technical SEO fundamentals (semantic HTML, meta tags, structured data, sitemap generation) and mobile-first responsive layouts.</li>
         </ul>
@@ -170,7 +170,7 @@ const Resume = () => (
         </div>
         <div className="company-name">Crewlogix (Lahore, Pakistan)</div>
         <ul className="job-responsibilities">
-          <li>Built and maintained custom Shopify themes in Liquid and React-based client interfaces across multiple stores.</li>
+          <li>Developed and deployed custom Shopify themes in Liquid and React-based client interfaces across multiple stores.</li>
           <li>Collaborated with designers and backend engineers in agile sprints; participated in code reviews and PR workflows.</li>
           <li>Integrated third-party Shopify apps and custom Liquid sections for client stores, including product filters, review widgets, and conversion-focused landing pages.</li>
         </ul>
@@ -183,7 +183,7 @@ const Resume = () => (
         </div>
         <div className="company-name">TEXOL (Dammam, KSA)</div>
         <ul className="job-responsibilities">
-          <li>Built and maintained corporate websites in HTML5, CSS3, and JavaScript; handled cross-browser compatibility and legacy browser support.</li>
+          <li>Spearheaded and sustained corporate websites in HTML5, CSS3, and JavaScript; handled cross-browser compatibility and legacy browser support.</li>
           <li>Integrated CMS workflows and managed content updates across multiple client sites.</li>
           <li>Supported ongoing maintenance, bug triage, and deployment.</li>
         </ul>
