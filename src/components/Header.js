@@ -191,7 +191,7 @@ const Header = () => {
           
           <div className="mobile-nav-footer">
             <Code size={24} />
-            <p>Frontend Developer Portfolio</p>
+            <p>Frontend Engineer Portfolio</p>
           </div>
         </div>
       </div>

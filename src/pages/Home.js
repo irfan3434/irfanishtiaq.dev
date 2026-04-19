@@ -54,7 +54,7 @@ const HeroSection = () => {
   const servicesRef = useRef(null);
 
   const taglines = [
-    "Creative Frontend Developer",
+    "Creative Frontend Engineer",
     "React & Next.js Expert",
     "Shopify Theme Specialist",
     "Pixel-perfect UI Engineer",
@@ -138,7 +138,7 @@ const HeroSection = () => {
           <div className="hero-left">
             <ProfileCard
               name="Irfan Ishtiaq"
-              title="Senior Frontend Developer"
+              title="Senior Frontend Engineer"
               handle="irfanishtiaq"
               status="Available for Projects"
               contactText="Contact Me"

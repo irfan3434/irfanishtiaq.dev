@@ -221,7 +221,7 @@ const About = () => {
                   <div className="timeline-content">
                     <div className="job-item">
                       <div className="job-header">
-                        <h3>Senior Frontend Developer</h3>
+                        <h3>Senior Frontend Engineer</h3>
                         <span className="job-date">Oct 2023 – Present</span>
                       </div>
                       <p className="job-company"><Globe size={16} /> Future Cities for Engineering Consultations (Riyadh, KSA)</p>

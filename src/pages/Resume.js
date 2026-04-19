@@ -136,7 +136,7 @@ const Resume = () => (
       
       <div className="experience-item">
         <div className="job-header">
-          <h3>Senior Frontend Developer | IT Consultant</h3>
+          <h3>Senior Frontend Engineer</h3>
           <span className="job-duration">Oct 2023 – Present</span>
         </div>
         <div className="company-name">Future Cities for Engineering Consultations (Riyadh, KSA)</div>
