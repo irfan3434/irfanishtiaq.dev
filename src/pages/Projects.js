@@ -144,7 +144,7 @@ const Projects = () => {
       id: 7,
       title: 'AQEAW Application Management System',
       githubUrl: 'https://github.com/irfan3434/drayed_backend',
-      liveUrl: 'https://aqeaw.com/pages/how-to-apply',
+      liveUrl: 'https://aqeaw.com/pages/HowToApply',
       description: 'Comprehensive application processing system for AQEAW (architectural consultancy) featuring multi-type form handling, file upload management, and automated email workflows. Supports both personal and organizational applications with referral systems.',
       challenge: 'Creating a robust form processing system that handles complex multi-step applications with dynamic field requirements, file uploads with validation, and automated email notifications with attachments while maintaining data integrity and user experience across Arabic/English interfaces.',
       solution: 'Built a flexible Express.js API with MongoDB for data persistence, Multer for secure file handling, and Nodemailer for automated email workflows. Implemented dynamic form validation, conditional field requirements, and comprehensive error handling with file cleanup procedures.',
