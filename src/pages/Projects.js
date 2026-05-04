@@ -72,19 +72,20 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'AQEAW – Architectural Excellence',
+      title: 'AQEAW – Ayed Alqarni Excellence Awards',
       url: 'https://www.aqeaw.com',
       image: proImage3,
-      description: 'Architectural showcase site with a clean interface, developed for AQEAW with pixel-perfect frontend work and customized components to highlight their design expertise.',
-      challenge: 'Creating a visually stunning portfolio that showcases architectural projects without overwhelming visitors, while ensuring optimal performance with large image assets.',
+      description: 'A production-grade, bilingual (Arabic/English) web application built on Next.js 14 using the App Router architecture. The project is written in TypeScript with a full RTL/LTR layout switching system.',
+      challenge: 'Creating a visually stunning web interface that showcases architectural brilliance without overwhelming visitors, while ensuring optimal performance with large image assets.',
       solution: 'Implemented a lazy-loaded image gallery with progressive loading and WebP format conversion, along with smooth scroll animations for an immersive viewing experience.',
       features: [
-        'Immersive project gallery',
-        'SVG-based interactive elements',
-        'Lazy-loaded image optimization',
-        'Smooth scrolling animations'
+        'Zero-Flash Bilingual RTL/LTR Switching',
+        'App Router Architecture with Feature-Scoped Structure',
+        'Global Language Context',
+        'Persistent Layout Shell',
+        'Rich Homepage Section Composition'
       ],
-      stack: ['HTML5', 'CSS3', 'JavaScript', 'Shopify', 'Responsive Design', 'JSON'],
+      stack: ['HTML5', 'CSS3', 'TypeScript', 'React.js', 'Next.js', 'Responsive Design'],
       color: '#ddb20a'
     },
     {
