@@ -589,6 +589,8 @@ app.get('/api/health', (req, res) => {
                       src={project.image}
                       alt={project.title}
                       className="project-image"
+                      width="1720"
+                      height="1080"
                       loading="lazy"
                     />
                     <div className="project-overlay" style={{ backgroundColor: `${project.color}99` }}>
@@ -778,6 +780,8 @@ app.get('/api/health', (req, res) => {
                             src={project.image}
                             alt={project.title}
                             className="project-detail-image"
+                            width="1720"
+                            height="1080"
                           />
                         ) : (
                           <div className="project-detail-code-container">
@@ -895,6 +899,8 @@ app.get('/api/health', (req, res) => {
                             src={project.image}
                             alt={project.title}
                             className="showcase-image"
+                            width="1720"
+                            height="1080"
                             loading="lazy"
                           />
                         ) : (

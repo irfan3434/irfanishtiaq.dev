@@ -17,6 +17,24 @@ import Image8 from '../assets/freeCodeCamp1.webp';
 import Image9 from '../assets/freeCodeCamp2.webp';
 import Image10 from '../assets/HackerRank.webp';
 
+// Intrinsic pixel dimensions of each certificate image, keyed by cert id.
+// Used for width/height attributes so the browser reserves correct aspect ratio (prevents layout shift).
+const CERT_DIMS = {
+  1:  [1275, 1650], // BSDegree
+  2:  [2000, 1414], // MSDegree
+  3:  [1275, 1650], // IELTS
+  4:  [1250, 1768], // Kreativstorm
+  5:  [2000, 1414], // Crewlogix
+  6:  [1240, 1753], // TEXOL
+  7:  [2200, 1700], // JohnHopkins
+  8:  [2200, 1700], // META
+  9:  [5500, 3889], // Codecademy1
+  10: [5500, 3889], // Codecademy2
+  11: [5500, 3889], // freeCodeCamp1
+  12: [5500, 3889], // freeCodeCamp2
+  13: [3000, 2121], // HackerRank
+};
+
 const About = () => {
   const [activeTab, setActiveTab] = useState('experience');
   const [modalOpen, setModalOpen] = useState(false);
@@ -361,7 +379,13 @@ const About = () => {
                 {certificates.map((cert) => (
                   <div className="cert-card" key={cert.id} onClick={() => openCertificateModal(cert)} >
                     <div className="cert-image">
-                      <img src={cert.image} alt={cert.title} />
+                      <img
+                        src={cert.image}
+                        alt={cert.title}
+                        width={CERT_DIMS[cert.id]?.[0]}
+                        height={CERT_DIMS[cert.id]?.[1]}
+                        loading="lazy"
+                      />
                       <div className="cert-overlay">
                         <span className="view-cert">View Details</span>
                       </div>
@@ -387,7 +411,12 @@ const About = () => {
                 <X size={24} />
               </button>
               <div className="modal-image">
-                <img src={selectedCertificate.image} alt={selectedCertificate.title} />
+                <img
+                  src={selectedCertificate.image}
+                  alt={selectedCertificate.title}
+                  width={CERT_DIMS[selectedCertificate.id]?.[0]}
+                  height={CERT_DIMS[selectedCertificate.id]?.[1]}
+                />
               </div>
               <div className="modal-info">
                 <h3>{selectedCertificate.title}</h3>
