@@ -143,6 +143,7 @@ const HeroSection = () => {
               status="Available for Projects"
               contactText="Contact Me"
               avatarUrl={profileImage}
+              avatarPriority={true}
               showUserInfo={true}
               enableTilt={true}
               enableMobileTilt={false}

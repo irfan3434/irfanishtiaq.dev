@@ -35,6 +35,7 @@ const easeInOutCubic = (x) =>
 
 const ProfileCardComponent = ({
   avatarUrl = "",
+  avatarPriority = false,
   iconUrl = "",
   grainUrl = "", 
   behindGradient,
@@ -301,7 +302,9 @@ const ProfileCardComponent = ({
                 alt={`${name || "User"} avatar`}
                 width="300"
                 height="300"
-                loading="lazy"
+                loading={avatarPriority ? "eager" : "lazy"}
+                fetchPriority={avatarPriority ? "high" : "auto"}
+                decoding="async"
                 onError={(e) => {
                   const target = e.target;
                   target.style.display = "none";
