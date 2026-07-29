@@ -5,9 +5,9 @@ import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp, Code, Globe, Databa
 import './Projects.css';
 import proImage1 from '../assets/fcec4.webp'
 import proImage2 from '../assets/fceco.webp'
-import proImage3 from '../assets/aqeaw 5.webp'
+import proImage3 from '../assets/aqeaw5.webp'
 import proImage4 from '../assets/futurecode3.webp'
-import proImage5 from '../assets/kf10.png'
+import proImage5 from '../assets/kf10.webp'
 import proImage6 from '../assets/maisonroyah.webp'
 
 const Projects = () => {
