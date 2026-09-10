@@ -78,22 +78,22 @@ const HeroSection = () => {
     {
       label: "Frontend",
       color: "#61dafb",
-      items: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Shopify Liquid"],
+      items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React.js", "Next.js", "Tailwind CSS", "Framer Motion", "Shopify Liquid"],
     },
     {
       label: "Backend",
       color: "#76b852",
-      items: ["Node.js", "Django (Python)", "Express.js", "REST APIs", "JWT Authentication"],
+      items: ["Node.js", "Express.js", "Django REST Framework", "REST APIs", "JWT Authentication", "SSE / AI Integration"],
     },
     {
       label: "Database",
       color: "#4db6ac",
-      items: ["MongoDB", "JSON"],
+      items: ["MongoDB", "PostgreSQL", "GridFS", "JSON"],
     },
     {
       label: "Design & Tools",
       color: "#e8a838",
-      items: ["UI/UX Design", "Wix Web Design", "Git / GitHub", "Postman (API)"],
+      items: ["UI/UX Design", "Accessibility (WCAG)", "i18n / RTL (Arabic)", "Wix Web Design", "Git / GitHub", "Postman (API)"],
     },
   ];
 
@@ -254,8 +254,8 @@ const HeroSection = () => {
             <p className="section-description">Delivering exceptional results with precision and expertise</p>
           </div>
           <div className="stats-grid">
-            <StatCard end={10} suffix="+" label="Projects Completed" delay={0}   />
-            <StatCard end={5}  suffix="+" label="Years Experience"   delay={200} />
+            <StatCard end={12} suffix="+" label="Projects Completed" delay={0}   />
+            <StatCard end={6}  suffix="+" label="Years Experience"   delay={200} />
             <StatCard end={12} suffix="+" label="Happy Clients"      delay={400} />
           </div>
         </div>

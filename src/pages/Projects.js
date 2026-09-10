@@ -9,6 +9,8 @@ import proImage3 from '../assets/aqeaw5.webp'
 import proImage4 from '../assets/futurecode3.webp'
 import proImage5 from '../assets/kf10.webp'
 import proImage6 from '../assets/maisonroyah.webp'
+import proImage7 from '../assets/whitepace.webp'
+import proImage8 from '../assets/tajalasna.webp'
 
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -36,6 +38,44 @@ const Projects = () => {
   };
 
   const frontendProjects = [
+    {
+      id: 11,
+      title: 'Whitepace – Pixel-Perfect SaaS Marketing Site',
+      url: 'https://whitepace-frontend-liard.vercel.app',
+      image: proImage7,
+      description: 'A production-grade, pixel-faithful recreation of a SaaS marketing site built on the Next.js 16 App Router with Turbopack. Matches the Figma across five breakpoints (320–1920) with a hand-built component system and zero UI-framework dependencies.',
+      challenge: 'Reproducing a complex, multi-section marketing design 1:1 across five breakpoints while keeping the bundle lean, the markup accessible, and dark mode flash-free — all without reaching for a component library.',
+      solution: 'Built a system of shared primitives (Button, Card, SectionHeading, Container, Reveal) fed by a centralized content layer, defaulted to React Server Components, and opted into client code only for genuinely interactive sections. Theme is resolved before paint via useSyncExternalStore to eliminate any flash of the wrong theme.',
+      features: [
+        'Five-breakpoint pixel-faithful layout (320 → 1920)',
+        'Hand-built component system — no UI framework',
+        'React Server Components by default, minimal client JS',
+        'No-flash dark mode via useSyncExternalStore + pre-paint script',
+        'WCAG AA: landmarks, skip-to-content, focus-visible, reduced-motion',
+        'Fully static output with next/image + next/font (near-zero CLS)'
+      ],
+      stack: ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'Turbopack', 'React Server Components', 'Responsive Design'],
+      color: '#4F9CF9'
+    },
+    {
+      id: 12,
+      title: 'Al Taj Al Asna – Bilingual Knowledge Platform (AI)',
+      url: 'https://taj-al-asna.vercel.app',
+      image: proImage8,
+      description: 'A bilingual (Arabic/English, full RTL) knowledge platform built on the Next.js App Router, pairing a richly art-directed interface with a retrieval-augmented AI assistant that answers in the user\'s language, streamed live to the browser.',
+      challenge: 'Delivering an AI assistant that feels instant and stays secure — the model-service key must never reach the browser — while serving a fully bilingual, deeply-linkable experience with audio playback and strong SEO.',
+      solution: 'Added a retrieval-augmented assistant behind a same-origin backend-for-frontend route that proxies to the model service with the key held server-side, streaming answers over Server-Sent Events token by token. Content is served through dynamic routes with programmatic sitemap/robots and Open Graph metadata.',
+      features: [
+        'Retrieval-augmented (RAG) AI assistant',
+        'Token-by-token answer streaming over Server-Sent Events',
+        'Same-origin BFF proxy — API key never exposed to the client',
+        'Bilingual Arabic/English with full RTL and audio playback',
+        'Dynamic content routes with deep-linkable, shareable URLs',
+        'Programmatic SEO: dynamic sitemap, robots, Open Graph, WebP media'
+      ],
+      stack: ['Next.js', 'TypeScript', 'Server-Sent Events', 'RAG / AI', 'i18n / RTL', 'SEO'],
+      color: '#0e7a5f'
+    },
     {
       id: 1,
       title: 'FCEC – Engineering Consultations',
@@ -143,74 +183,61 @@ const Projects = () => {
   const backendProjects = [
     {
       id: 7,
-      title: 'AQEAW Application Management System',
-      githubUrl: 'https://github.com/irfan3434/drayed_backend',
+      title: 'AQEAW – Awards Application & Review Platform',
+      githubUrl: 'https://github.com/irfan3434/aq2026-backend',
       liveUrl: 'https://aqeaw.com/HowToApply',
-      description: 'Comprehensive application processing system for AQEAW (architectural consultancy) featuring multi-type form handling, file upload management, and automated email workflows. Supports both personal and organizational applications with referral systems.',
-      challenge: 'Creating a robust form processing system that handles complex multi-step applications with dynamic field requirements, file uploads with validation, and automated email notifications with attachments while maintaining data integrity and user experience across Arabic/English interfaces.',
-      solution: 'Built a flexible Express.js API with MongoDB for data persistence, Multer for secure file handling, and Nodemailer for automated email workflows. Implemented dynamic form validation, conditional field requirements, and comprehensive error handling with file cleanup procedures.',
-      codeSnippet: `app.post('/submit-application', uploadMiddleware, async (req, res) => {
-  try {
-    const {
-      formType, userType, fullName, email, phone,
-      achievementTitle, description, ndaAccepted
-    } = req.body;
+      description: 'Backend and admin platform for a national excellence award. Handles bilingual, polymorphic nomination forms (individual and organization; self-entry and referral) with file-backed achievements, stores uploads in MongoDB Atlas via GridFS, and gives the review committee an authenticated dashboard with filtering and Excel export.',
+      challenge: 'Accepting multi-part nominations with attachments from the public while keeping the committee\'s admin surface secure — without standing up external file storage or pulling in a heavy authentication stack.',
+      solution: 'Built an Express API that streams uploads straight into GridFS (MIME allow-listing and size limits via Multer), signs admin sessions with dependency-free HMAC-SHA256 tokens verified in constant time, and exports submissions to a styled multi-sheet workbook with ExcelJS. New submissions trigger Nodemailer notifications with the original files attached, read back out of GridFS.',
+      codeSnippet: `router.post('/submit-application', upload.fields([
+  { name: 'upload[]', maxCount: 4 },
+  { name: 'uploadOrg[]', maxCount: 4 },
+]), async (req, res) => {
+  const { formType } = req.body;
 
-    // Process achievements with file mapping
-    const achievements = Array.isArray(achievementTitle) 
-      ? achievementTitle.map((title, index) => ({
-          title,
-          description: description[index],
-          filePath: req.files[index]?.path || null
-        }))
-      : [{
-          title: achievementTitle,
-          description,
-          filePath: req.files[0]?.path || null
-        }];
+  // Stream each attachment into GridFS (MongoDB Atlas) — no external blob store
+  const buildAchievements = async (titles, descs, files) => {
+    const out = [];
+    for (let i = 0; i < titles.length; i++) {
+      let file;
+      if (files[i]?.buffer) {
+        const { fileId, filename, size } = await uploadToGridFS(
+          files[i].buffer, files[i].originalname, files[i].mimetype
+        );
+        file = { fileId, filename, originalName: files[i].originalname, size };
+      }
+      out.push({ title: titles[i] || '', description: descs[i] || '', file });
+    }
+    return out;
+  };
 
-    const applicationData = {
-      formType, userType, fullName, email, phone,
-      ndaAccepted: ndaAccepted === 'on',
-      achievements
-    };
+  // Polymorphic: individual (self / referral) or organization submission
+  const doc = formType === 'organization'
+    ? await OrganizationApplication.create({ /* org fields */ achievements })
+    : await PersonalApplication.create({ /* self or referral */ achievements });
 
-    const newApplication = new Application(applicationData);
-    await newApplication.save();
+  res.status(201).json({ ok: true, id: doc._id, type: formType });
 
-    // Send notification email with attachments
-    const attachments = achievements
-      .filter(achievement => achievement.filePath)
-      .map(achievement => ({
-        filename: path.basename(achievement.filePath),
-        path: achievement.filePath
-      }));
-
-    await transporter.sendMail({
-      from: process.env.OUTLOOK_EMAIL,
-      to: 'info@aqeaw.com',
-      subject: 'New Application Submitted',
-      html: generateEmailTemplate(applicationData),
-      attachments
-    });
-
-    res.status(200).send(generateSuccessResponse());
-  } catch (error) {
-    console.error('Application processing error:', error);
-    res.status(500).json({ error: 'Submission failed' });
-  }
+  // Fire-and-forget email with the original files read back out of GridFS
+  sendSubmissionNotification(doc, formType).catch(console.error);
 });`,
       features: [
-        'Multi-type form processing (Personal/Organization/Referral)',
-        'Secure file upload with validation (PDF, DOC, Images)',
-        'Dynamic field requirements based on form type',
-        'Automated email notifications with attachments',
-        'MongoDB data persistence with timestamps',
-        'CORS security for domain-specific access',
-        'File cleanup and error handling',
-        'Bilingual support (Arabic/English)'
+        'Polymorphic forms: individual / organization, self / referral',
+        'GridFS file storage in MongoDB Atlas (no external blob store)',
+        'Multer memory uploads with MIME allow-list and size limits',
+        'HMAC-SHA256 signed admin tokens, constant-time verification, TTL',
+        'Admin dashboard: search, type and date-range filters, detail views',
+        'Styled multi-sheet Excel export (ExcelJS)',
+        'Email notifications with GridFS-sourced attachments (Nodemailer)',
+        'CORS allow-list, request IP capture, health endpoint'
       ],
-      stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Multer', 'Nodemailer', 'CORS', 'Heroku'],
+      implementation: [
+        { label: 'Architecture', value: 'Express REST API; uploads streamed into MongoDB Atlas via GridFS' },
+        { label: 'Security', value: 'HMAC-SHA256 signed admin tokens, constant-time verification, CORS allow-list' },
+        { label: 'Files', value: 'Multer memory storage, MIME allow-list and size limits; email attachments read back from GridFS' },
+        { label: 'Reporting', value: 'Styled multi-sheet workbook export via ExcelJS' }
+      ],
+      stack: ['Node.js', 'Express', 'MongoDB Atlas', 'GridFS', 'Multer', 'ExcelJS', 'Nodemailer', 'Heroku'],
       color: '#2563eb'
     },
     {
@@ -272,6 +299,12 @@ const Projects = () => {
         'Input validation and error handling',
         'CORS security for domain-specific access',
         'Responsive form UI with image carousel'
+      ],
+      implementation: [
+        { label: 'Architecture', value: 'Express REST API with dynamic array processing for education / experience sections' },
+        { label: 'Files', value: 'Résumé upload with base64 encoding and temp-file cleanup' },
+        { label: 'Notifications', value: 'Structured HR email templates with attachments (Nodemailer)' },
+        { label: 'Security', value: 'CORS allow-list and server-side input validation' }
       ],
       stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Multer', 'Nodemailer', 'CORS', 'Heroku'],
       color: '#10b981'
@@ -392,7 +425,13 @@ const Projects = () => {
         'JWT authentication with refresh tokens',
         'Version control for all budget modifications'
       ],
-      stack: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'JWT', 'Celery', 'Redis', 'Docker'],
+      implementation: [
+        { label: 'Architecture', value: 'Django REST Framework; class-based API views with serializers' },
+        { label: 'Access control', value: 'Custom RBAC permission checks per endpoint; role-scoped querysets' },
+        { label: 'Workflows', value: 'Budget approval state machine with version history and unique serial numbers' },
+        { label: 'Auth', value: 'JWT (SimpleJWT) access and refresh tokens' }
+      ],
+      stack: ['Python', 'Django', 'Django REST Framework', 'PostgreSQL', 'SimpleJWT', 'RBAC'],
       color: '#8b5cf6'
     },
     {
@@ -475,6 +514,12 @@ app.get('/api/health', (req, res) => {
         'Responsive frontend with smooth animations',
         'MongoDB data persistence with proper indexing',
         'RESTful API design with comprehensive error handling'
+      ],
+      implementation: [
+        { label: 'Architecture', value: 'Modular Express routers (feedback / voting / admin) with a health endpoint' },
+        { label: 'Security', value: 'Helmet headers, rate limiting, dynamic CORS origin checks, XSS protection' },
+        { label: 'Data', value: 'MongoDB with indexing; admin curation before public voting' },
+        { label: 'Analytics', value: 'Real-time vote tallying and results dashboard' }
       ],
       stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Helmet', 'CORS', 'Rate Limiting', 'XSS Protection'],
       color: '#dc2626'
@@ -830,22 +875,15 @@ app.get('/api/health', (req, res) => {
                           </ul>
                         </div>
                         
-                        {activeSection === 'backend' && (
+                        {activeSection === 'backend' && project.implementation && (
                           <div className="project-detail-section">
                             <h4 className="project-detail-section-title" style={{ "--project-color": project.color, "--project-color-light": `${project.color}15` }}>Technical Implementation</h4>
                             <div className="implementation-highlights">
-                              <div className="implementation-item">
-                                <strong>Architecture:</strong> RESTful API design with proper HTTP status codes and error handling
-                              </div>
-                              <div className="implementation-item">
-                                <strong>Security:</strong> JWT authentication, input validation, and SQL injection prevention
-                              </div>
-                              <div className="implementation-item">
-                                <strong>Performance:</strong> Database optimization, caching strategies, and async operations
-                              </div>
-                              <div className="implementation-item">
-                                <strong>Testing:</strong> Unit tests, integration tests, and API documentation
-                              </div>
+                              {project.implementation.map((item, i) => (
+                                <div className="implementation-item" key={i}>
+                                  <strong>{item.label}:</strong> {item.value}
+                                </div>
+                              ))}
                             </div>
                           </div>
                         )}
