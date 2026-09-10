@@ -127,7 +127,7 @@ const Resume = () => (
 
     <div className="resume-summary">
       <p>
-        Senior Frontend Engineer with 6+ years building production React and Next.js applications across SaaS portals, corporate platforms, and e-commerce. Specializes in component architecture, performance optimization, and translating Figma designs into accessible, pixel-perfect interfaces. Recently extended stack into React Native for cross-platform delivery.
+        Senior Frontend Engineer with 7+ years building production React and Next.js applications across SaaS portals, bilingual corporate platforms, and e-commerce. Strong in component architecture, web performance, accessibility, and translating Figma into production UI, with full-stack range across Node/Express and Django REST. Builds and ships bilingual Arabic/English (RTL) products end to end, from design system to deployment.
       </p>
     </div>
 
@@ -141,11 +141,10 @@ const Resume = () => (
         </div>
         <div className="company-name">Future Cities for Engineering Consultations (Riyadh, KSA)</div>
         <ul className="job-responsibilities">
-          <li>Architected and shipped an internal Employee Portal (React + Node.js + Django, JWT auth) with a role-based access control system spanning 47 granular permissions, personalized dashboards, leave management, document expiry tracking, and internal messaging.</li>
-          <li>Built a full budget-lifecycle module with multi-stage approval workflows, versioning, audit trails, and typed sub-items (iqama renewals, medical insurance, business trips) including expense tracking and increment-request flows.</li>
-          <li>Delivered 6 production web properties including aqeaw.com (bilingual Next.js 14 portfolio), fcec.sa and futurecode.sa (bilingual corporate sites), fceco.sa, and Kheir Fragrances (Shopify Liquid e-commerce); deployed on Vercel with custom DNS configuration.</li>
-          <li>Built the full-stack backend (Express + MongoDB Atlas on Heroku) with automated Outlook email notifications and a password-protected admin dashboard with search, filters, detail views, and Excel export for the review committee.</li>
-          <li>Achieved Lighthouse scores of 85–89 Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices across production deployments (fcec.sa, fceco.sa, futurecode.sa) via code splitting, next/image optimization, and deferred third-party scripts.</li>
+          <li>Lead frontend across the company’s digital portfolio — internal business platforms and a suite of public, bilingual (Arabic/English) web properties — owning architecture, shared component systems, and production deployment on Vercel with custom DNS.</li>
+          <li>Shipped six production web properties (bilingual corporate sites, a portfolio platform, and a Shopify storefront) while sustaining Lighthouse scores of 85–89 Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices through code-splitting, image optimization, and deferred third-party scripts.</li>
+          <li>Delivered two data-driven platforms end to end — frontend, REST API, persistence, authentication, and transactional email — including role-based access control and a secured admin console for a review committee.</li>
+          <li>Extended the stack into React Native (CLI) for cross-platform delivery: list virtualization, stack navigation, form validation, and search/filter, targeting Android.</li>
           <li>Prototyped a React Native CLI application with FlatList virtualization, React Navigation, form validation, and search/filter, targeting Android.</li>
         </ul>
       </div>
