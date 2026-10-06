@@ -181,7 +181,7 @@ const Resume = () => (
         </div>
         <div className="company-name">TEXOL (Dammam, KSA)</div>
         <ul className="job-responsibilities">
-          <li>Spearheaded and sustained corporate websites in HTML5, CSS3, and JavaScript; handled cross-browser compatibility and legacy browser support.</li>
+          <li>Built and maintained corporate websites in HTML5, CSS3, and JavaScript; handled cross-browser compatibility and legacy browser support.</li>
           <li>Integrated CMS workflows and managed content updates across multiple client sites.</li>
           <li>Supported ongoing maintenance, bug triage, and deployment.</li>
         </ul>
