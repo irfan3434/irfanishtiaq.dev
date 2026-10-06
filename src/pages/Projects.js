@@ -12,6 +12,50 @@ import proImage6 from '../assets/maisonroyah.webp'
 import proImage7 from '../assets/whitepace.webp'
 import proImage8 from '../assets/tajalasna.webp'
 
+/* ── Minimal, dependency-free syntax highlighter for the code snippets ──────────
+   Display-only: tokenizes comments, strings, keywords, numbers and function calls
+   into coloured <span>s. Kept lightweight (no runtime highlighting library) and it
+   ships only inside the lazy-loaded Projects chunk. */
+const CODE_TOKEN =
+  /(\/\/[^\n]*|#[^\n]*|\/\*[\s\S]*?\*\/)|(`(?:\\.|[^`\\])*`|'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*")|\b(const|let|var|function|return|if|else|for|while|do|switch|case|break|continue|await|async|export|import|from|default|new|class|extends|try|catch|finally|throw|typeof|instanceof|void|yield|def|self|None|True|False|and|or|not|elif|lambda|raise|with|as|pass|in|of)\b|\b(0x[\da-fA-F]+|\d+(?:\.\d+)?)\b|([A-Za-z_$][\w$]*)(?=\s*\()/g;
+
+function highlightCode(code) {
+  const out = [];
+  let last = 0;
+  let key = 0;
+  let m;
+  CODE_TOKEN.lastIndex = 0;
+  while ((m = CODE_TOKEN.exec(code)) !== null) {
+    if (m.index > last) out.push(code.slice(last, m.index));
+    const cls = m[1] !== undefined ? 'tok-comment'
+      : m[2] !== undefined ? 'tok-string'
+      : m[3] !== undefined ? 'tok-keyword'
+      : m[4] !== undefined ? 'tok-number'
+      : 'tok-fn';
+    out.push(<span key={key++} className={cls}>{m[0]}</span>);
+    last = m.index + m[0].length;
+  }
+  if (last < code.length) out.push(code.slice(last));
+  return out;
+}
+
+/** Trim a snippet preview to `max` chars, cutting on a line boundary (never mid-token). */
+function snippetPreview(code, max) {
+  if (code.length <= max) return code;
+  const cut = code.slice(0, max);
+  const nl = cut.lastIndexOf('\n');
+  return (nl > 40 ? cut.slice(0, nl) : cut) + '\n…';
+}
+
+/** A highlighted code block; keeps the same <pre><code> structure the CSS targets. */
+function CodeBlock({ code, className }) {
+  return (
+    <pre className={className}>
+      <code>{highlightCode(code)}</code>
+    </pre>
+  );
+}
+
 const Projects = () => {
   const [activeProject, setActiveProject] = useState(null);
   const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'showcase'
@@ -245,9 +289,9 @@ const Projects = () => {
       title: 'FCEC Job Recruitment System',
       githubUrl: 'https://github.com/irfan3434/recruitment-form',
       liveUrl: 'https://www.fcec.sa/pages/apply-now-1',
-      description: 'Full-featured job application processing system for FCEC engineering consultancy. Handles complex multi-section forms with dynamic field addition, resume uploads, and automated HR notifications with structured data presentation.',
-      challenge: 'Building a scalable recruitment system that captures comprehensive candidate profiles including dynamic education/experience entries, handles file uploads securely, and delivers well-formatted application data to HR teams while maintaining data integrity across form submissions.',
-      solution: 'Developed a robust Express.js backend with MongoDB for applicant data storage, Multer for secure resume handling with base64 encoding, and Nodemailer for automated HR notifications. Implemented dynamic array processing for education/experience sections and comprehensive error handling.',
+      description: 'Job-application backend for an engineering consultancy. Captures multi-section candidate profiles with dynamically repeatable education and experience rows, handles resume uploads, and delivers structured applications to HR by email.',
+      challenge: 'Turning a variable-length form — any number of education and experience rows — into clean, queryable records, while handling resume files and notifying HR reliably without a dedicated file store.',
+      solution: 'Built an Express API that maps the repeatable form arrays into structured subdocuments, encodes the resume to base64 for storage and as an email attachment (temp file cleaned up afterward), and sends HR a formatted Nodemailer notification. Server-side validation and a CORS allow-list throughout.',
       codeSnippet: `app.post('/submit-form', upload.single('resume'), async (req, res) => {
   const { firstName, lastName, email, phone, profession, nationality, 
           address, highestEducation, fieldOfStudy, institute, 
@@ -282,7 +326,7 @@ const Projects = () => {
   // Send structured email notification to HR
   await transporter.sendMail({
     from: process.env.OUTLOOK_EMAIL,
-    to: 'careers@futurecityec.com',
+    to: process.env.HR_NOTIFY_EMAIL,
     subject: 'New Job Application Received',
     html: generateStructuredEmailTemplate(req.body),
     attachments: [{ filename: req.file.originalname, content: encodedFile, encoding: 'base64' }]
@@ -313,106 +357,45 @@ const Projects = () => {
       id: 9,
       title: 'Enterprise HR Management System',
       githubUrl: 'https://github.com/irfan3434/employee-portal-backend',
-      liveUrl: 'https://hr-dashboard-api.fcec.com',
-      description: 'Comprehensive enterprise HR management platform built with Django REST Framework. Features role-based access control, employee management, budget tracking with approval workflows, leave management, task assignment, and internal messaging systems.',
-      challenge: 'Building a scalable HR system that handles complex organizational hierarchies with granular permissions, multi-stage budget approval workflows, and real-time employee tracking while maintaining data security and audit trails across all operations.',
-      solution: 'Developed a robust Django REST API with JWT authentication, custom permission classes, and role-based access control. Implemented complex budget management with version tracking, automated approval workflows, and comprehensive audit logging for compliance and transparency.',
-      codeSnippet: `
-      class EmployeeDataView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        if not check_dashboard_permission(request.user, 'view_self_profile'):
-            return Response({'error': 'Permission denied'}, status=403)
-
-        user = request.user
-        
-        # ✅ Retrieve dashboard role if assigned
-        dashboard_role = user.dashboard_role.name if hasattr(user, 'dashboard_role') and user.dashboard_role else None
-        
-        # ✅ Retrieve assigned permissions as a list
-        permissions = list(user.dashboard_role.permissions.values_list("code", flat=True)) if dashboard_role else []
-
-        # Define accessible software based on access level
-        software_links = {
-            "basic": ["https://signin.jisr.net/#/login", "https://www.zoho.com/login.html"],
-            "advanced": ["https://signin.jisr.net/#/login", "https://www.zoho.com/login.html"],
-            "admin": ["https://signin.jisr.net/#/login", "https://www.zoho.com/login.html"],
-        }
-
-        return Response({
-            "id": user.id,
-            "username": user.username,
-            "full_name": user.full_name,
-            "email": user.email,
-            "employee_id": user.employee_id,
-            "work_title": user.work_title,
-            "department": user.department,
-            "access_level": ', '.join([group.name for group in user.groups.all()]) or "No group assigned",
-            "avatar": user.avatar.url if user.avatar else '/media/avatars/default.jpg',
-            "join_date": localtime(user.date_joined).strftime('%d-%m-%Y %H:%M:%S'),
-            "last_login": localtime(user.last_login).strftime('%d-%m-%Y %H:%M:%S') if user.last_login else "Never logged in",
-            "software_links": software_links.get(user.access_level, []),
-            "is_staff": user.is_staff,
-            "total_annual_leave": user.total_annual_leave,
-            "dashboard_role": dashboard_role,  # ✅ Now includes role
-            "permissions": permissions  # ✅ Now includes permissions
-        })
-      
-      class BudgetView(APIView):
+      description: 'Enterprise HR platform built on Django REST Framework: role-based access control, employee records, a multi-stage budget-approval workflow with audit trails, leave management, task assignment, and internal messaging.',
+      challenge: 'Modelling a real organizational hierarchy — granular per-endpoint permissions and a multi-step budget approval chain — with complete audit trails and no gaps in data security.',
+      solution: 'Built a DRF API with custom RBAC permission classes enforced per endpoint, a budget state machine (pending_finance to approved) with versioned history and unique serial numbers, and SimpleJWT access/refresh auth. Every budget change is written to an immutable version record for compliance.',
+      codeSnippet: `class BudgetView(APIView):
     permission_classes = [IsAuthenticated]
     parser_classes = [MultiPartParser, FormParser, JSONParser]
 
-    def generate_unique_serial_number(self, budget_type, main_category, month, fortnight):
-        prefix = f"BUDG-{budget_type.upper()}-{main_category.upper().replace(' ', '_')}-{month.upper()}-{fortnight.upper()}-{timezone.now().year}"
-        counter = 1
-        serial_number = f"{prefix}-{counter:03d}"
-        while Budget.objects.filter(serial_number=serial_number).exists():
-            counter += 1
-            serial_number = f"{prefix}-{counter:03d}"
-        return serial_number
-
     def post(self, request):
+        # Per-endpoint RBAC check — authentication alone is not enough
         if not check_dashboard_permission(request.user, 'submit_budget'):
             return Response({'error': 'Permission denied'}, status=403)
 
-        finance_id = request.data.get('finance_reviewer')
-        approver_id = request.data.get('approver')
-
-        try:
-            finance_user = Employee.objects.get(id=finance_id)
-            approver_user = Employee.objects.get(id=approver_id)
-        except Employee.DoesNotExist:
-            return Response({"error": "Invalid Finance Reviewer or Approver."}, status=400)
-
         serializer = BudgetSerializer(data=request.data)
-        if serializer.is_valid():
-            # Generate unique serial number
-            serial_number = self.generate_unique_serial_number(
-                request.data.get('budget_type'),
-                request.data.get('main_category'),
-                request.data.get('month'),
-                request.data.get('fortnight')
-            )
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
 
-            budget = serializer.save(
-                created_by=request.user,
-                finance_reviewer=finance_user,
-                approver=approver_user,
-                status='pending_finance',
-                serial_number=serial_number
-            )
+        # Unique, human-readable serial, e.g. BUDG-OPEX-IT-MAR-H1-2025
+        serial_number = self.generate_unique_serial_number(
+            request.data.get('budget_type'),
+            request.data.get('main_category'),
+            request.data.get('month'),
+            request.data.get('fortnight'),
+        )
 
-            # Create version history for audit trail
-            BudgetVersion.objects.create(
-                budget_request=budget,
-                modified_by=request.user,
-                version_number=1,
-                changes={'initial_submission': True}
-            )
+        budget = serializer.save(
+            created_by=request.user,
+            status='pending_finance',
+            serial_number=serial_number,
+        )
 
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)`,
+        # Immutable audit trail: every change is written as a new version record
+        BudgetVersion.objects.create(
+            budget_request=budget,
+            modified_by=request.user,
+            version_number=1,
+            changes={'initial_submission': True},
+        )
+
+        return Response(serializer.data, status=201)`,
       features: [
         'Role-based Access Control (RBAC) with custom permissions',
         'Multi-stage budget approval workflows with audit trails',
@@ -460,9 +443,8 @@ const corsOptions = {
     
     const allowedOrigins = [
       'http://localhost:3000',
-      'https://aqeaw.com',
-      'https://www.aqeaw.com',
-      'https://irfan3434.github.io'
+      'https://your-site.example',
+      'https://www.your-site.example'
     ];
     
     if (origin.includes('localhost') || allowedOrigins.includes(origin)) {
@@ -523,6 +505,73 @@ app.get('/api/health', (req, res) => {
       ],
       stack: ['Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'Helmet', 'CORS', 'Rate Limiting', 'XSS Protection'],
       color: '#dc2626'
+    },
+    {
+      id: 11,
+      title: 'Taj Al Asna – RAG Knowledge Assistant',
+      githubUrl: 'https://github.com/irfan3434/taj-al-asna',
+      liveUrl: 'https://taj-al-asna.vercel.app/assistant',
+      description: 'Bilingual (Arabic/English) retrieval-augmented knowledge assistant for the 99 Beautiful Names of Allah. A Next.js backend securely proxies a hosted RAG engine and streams its answers to the browser in real time — grounded in classical Arabic source texts, with inline citations and a sources panel.',
+      challenge: 'Exposing an authenticated, streaming RAG service to the browser without leaking the API key or buffering the response, while keeping every answer grounded in source material with verifiable, clickable citations across a right-to-left Arabic interface.',
+      solution: 'Built a Node-runtime Next.js route that keeps the engine URL and key server-side and forwards each query to the RAG service with an x-api-key header, then pipes the upstream Server-Sent Events stream straight back to the client unchanged. The client parses meta / delta / error events to render tokens live, map [n] markers to a collapsible Sources panel (filename and relevance score), and format bold, quoted names and comparison tables.',
+      codeSnippet: `// Next.js (Node runtime) route: a secure, streaming proxy to the hosted RAG engine.
+export const runtime = 'nodejs';
+
+export async function POST(req: NextRequest) {
+  const base = process.env.RAG_API_URL?.trim();
+  const key  = process.env.RAG_API_KEY?.trim();
+
+  // The key lives only on the server — the client only ever calls this same-origin route.
+  if (!base) return Response.json({ error: 'not_configured' }, { status: 503 });
+
+  const { text, lang } = await req.json();
+  if (!text || !text.trim()) {
+    return Response.json({ error: 'empty_query' }, { status: 400 });
+  }
+
+  // Forward the query to the RAG engine with the private key attached.
+  const upstream = await fetch(base + '/api/query', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      ...(key ? { 'x-api-key': key } : {}),
+    },
+    body: JSON.stringify({ text, lang, stream: true }),
+  });
+
+  if (!upstream.ok || !upstream.body) {
+    return Response.json({ error: 'upstream_error', status: upstream.status }, { status: 502 });
+  }
+
+  // Pipe the Server-Sent Events stream straight back, unchanged:
+  //   event: meta  -> retrieved sources     event: delta -> answer tokens
+  return new Response(upstream.body, {
+    status: 200,
+    headers: {
+      'content-type': 'text/event-stream; charset=utf-8',
+      'cache-control': 'no-cache, no-transform',
+      connection: 'keep-alive',
+    },
+  });
+}`,
+      features: [
+        'Retrieval-augmented answers grounded in classical Arabic source texts',
+        'Server-side proxy keeps the RAG API key off the browser (same-origin only)',
+        'Real-time token streaming over Server-Sent Events (meta / delta / error)',
+        'Inline [n] citations mapped to a collapsible Sources panel (file + relevance score)',
+        'Bilingual Arabic / English queries and answers, fully RTL-aware',
+        'Node runtime chosen for reliable SSE passthrough with no buffering',
+        'Graceful error states: not-configured, empty query, upstream unreachable',
+        'Rich answer rendering: bold, highlighted names, and comparison tables'
+      ],
+      implementation: [
+        { label: 'Architecture', value: 'Next.js (Node runtime) API route proxying a hosted RAG engine; the browser calls a same-origin endpoint only' },
+        { label: 'Streaming', value: 'Server-Sent Events piped through unchanged — meta (sources), delta (answer tokens), error' },
+        { label: 'Security', value: 'Server-only RAG_API_URL / RAG_API_KEY, forwarded as x-api-key and never exposed to the client' },
+        { label: 'Retrieval', value: 'Answers grounded in source chunks returned with filenames and relevance scores, surfaced as citations' }
+      ],
+      stack: ['Next.js', 'Node.js', 'TypeScript', 'RAG', 'Vector Search', 'SSE Streaming', 'LLM', 'Vercel'],
+      color: '#0d9488'
     }
   ];
 
@@ -573,10 +622,10 @@ app.get('/api/health', (req, res) => {
             <button 
               className={`section-toggle-btn ${activeSection === 'backend' ? 'active' : ''}`}
               onClick={() => handleSectionChange('backend')}
-              aria-label="Backend Projects"
+              aria-label="Full-Stack and API Projects"
             >
               <Database size={18} />
-              Backend
+              Full-Stack / APIs
               <span className="section-count">({backendProjects.length})</span>
             </button>
           </motion.div>
@@ -674,9 +723,10 @@ app.get('/api/health', (req, res) => {
                       </div>
                       <span className="code-title">API Implementation</span>
                     </div>
-                    <pre className="backend-code-snippet">
-                      <code>{project.codeSnippet.substring(0, 400)}...</code>
-                    </pre>
+                    <CodeBlock
+                      className="backend-code-snippet"
+                      code={snippetPreview(project.codeSnippet, 420)}
+                    />
                     <div className="backend-overlay" style={{ backgroundColor: `${project.color}99` }}>
                       <div className="project-actions">
                         <a
@@ -838,9 +888,10 @@ app.get('/api/health', (req, res) => {
                               </div>
                               <span className="code-title">{project.title} - API Implementation</span>
                             </div>
-                            <pre className="project-detail-code-snippet">
-                              <code>{project.codeSnippet}</code>
-                            </pre>
+                            <CodeBlock
+                              className="project-detail-code-snippet"
+                              code={project.codeSnippet}
+                            />
                           </div>
                         )}
                       </div>
@@ -950,9 +1001,10 @@ app.get('/api/health', (req, res) => {
                                 <span className="dot green"></span>
                               </div>
                             </div>
-                            <pre className="showcase-code-snippet">
-                              <code>{project.codeSnippet.substring(0, 200)}...</code>
-                            </pre>
+                            <CodeBlock
+                              className="showcase-code-snippet"
+                              code={snippetPreview(project.codeSnippet, 220)}
+                            />
                           </div>
                         )}
                       </div>
@@ -999,7 +1051,7 @@ app.get('/api/health', (req, res) => {
             </div>
             <div className="stat-item">
               <span className="stat-number">{backendProjects.length}</span>
-              <span className="stat-label">Backend APIs</span>
+              <span className="stat-label">Full-Stack / APIs</span>
             </div>
             <div className="stat-item">
               <span className="stat-number">{frontendProjects.length + backendProjects.length}</span>

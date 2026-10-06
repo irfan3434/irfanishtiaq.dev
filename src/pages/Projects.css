@@ -303,6 +303,13 @@ body.dark-mode .view-toggle-btn.active {
     white-space: pre-wrap;
 }
 
+/* Syntax-highlight token colours (VS Code dark palette) for all code snippets */
+.tok-comment { color: #6a9955; font-style: italic; }
+.tok-string  { color: #ce9178; }
+.tok-keyword { color: #569cd6; }
+.tok-number  { color: #b5cea8; }
+.tok-fn      { color: #dcdcaa; }
+
 .backend-overlay {
     position: absolute;
     top: 0;
