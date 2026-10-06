@@ -142,10 +142,9 @@ const Resume = () => (
         <div className="company-name">Future Cities for Engineering Consultations (Riyadh, KSA)</div>
         <ul className="job-responsibilities">
           <li>Lead frontend across the company’s digital portfolio — internal business platforms and a suite of public, bilingual (Arabic/English) web properties — owning architecture, shared component systems, and production deployment on Vercel with custom DNS.</li>
-          <li>Shipped six production web properties (bilingual corporate sites, a portfolio platform, and a Shopify storefront) while sustaining Lighthouse scores of 85–89 Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices through code-splitting, image optimization, and deferred third-party scripts.</li>
+          <li>Shipped six production web properties (bilingual corporate sites, a portfolio platform, and a Shopify storefront) while sustaining Lighthouse scores of 90+ Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices through code-splitting, image optimization, and deferred third-party scripts.</li>
           <li>Delivered two data-driven platforms end to end — frontend, REST API, persistence, authentication, and transactional email — including role-based access control and a secured admin console for a review committee.</li>
           <li>Extended the stack into React Native (CLI) for cross-platform delivery: list virtualization, stack navigation, form validation, and search/filter, targeting Android.</li>
-          <li>Prototyped a React Native CLI application with FlatList virtualization, React Navigation, form validation, and search/filter, targeting Android.</li>
         </ul>
       </div>
 

@@ -90,7 +90,7 @@ const Projects = () => {
         'Responsive design for all devices',
         'Optimized performance (95+ PageSpeed)'
       ],
-      stack: ['Shopify', 'Liquid', 'HTML5', 'CSS3', 'JavaScript', 'JSON', 'Responsive Design'],
+      stack: [ 'HTML5', 'CSS3', 'JavaScript', 'JSON', 'Responsive Design'],
       color: '#4A90E2'
     },
     {

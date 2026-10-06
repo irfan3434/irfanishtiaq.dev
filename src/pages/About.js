@@ -188,7 +188,7 @@ const About = () => {
             <div className="profile-accent"></div> 
           </motion.div>
             <motion.p className="about-summary" initial={{ opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.7, delay: 0.2 }}>
-              Senior Frontend Engineer with 6+ years building production React and Next.js applications across SaaS portals, corporate platforms, and e-commerce. Specializes in component architecture, performance optimization, and translating Figma designs into accessible, pixel-perfect interfaces. Recently extended stack into React Native for cross-platform delivery.
+              Senior Frontend Engineer with 7+ years building production React and Next.js applications across SaaS portals, corporate platforms, and e-commerce. Specializes in component architecture, performance optimization, and translating Figma designs into accessible, pixel-perfect interfaces. Recently extended stack into React Native for cross-platform delivery.
             </motion.p>
         
            
@@ -248,7 +248,7 @@ const About = () => {
                        <li>Built a full budget-lifecycle module with multi-stage approval workflows, versioning, audit trails, and typed sub-items (iqama renewals, medical insurance, business trips) including expense tracking and increment-request flows.</li>
                        <li>Delivered 6 production web properties including aqeaw.com (bilingual Next.js 14 portfolio), fcec.sa and futurecode.sa (bilingual corporate sites), fceco.sa, and Kheir Fragrances (Shopify Liquid e-commerce); deployed on Vercel with custom DNS configuration.</li>
                        <li>Built the full-stack backend (Express + MongoDB Atlas on Heroku) with automated Outlook email notifications and a password-protected admin dashboard with search, filters, detail views, and Excel export for the review committee.</li>
-                       <li>Achieved Lighthouse scores of 85–89 Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices across production deployments (fcec.sa, fceco.sa, futurecode.sa) via code splitting, next/image optimization, and deferred third-party scripts.</li>
+                       <li>Achieved Lighthouse scores of 90+ Performance, 88–95 Accessibility, 92–100 SEO, and 96–100 Best Practices across production deployments (fcec.sa, fceco.sa, futurecode.sa) via code splitting, next/image optimization, and deferred third-party scripts.</li>
                       <li>Prototyped a React Native CLI application with FlatList virtualization, React Navigation, form validation, and search/filter, targeting Android.</li>
                       </ul>
                     </div>

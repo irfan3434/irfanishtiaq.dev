@@ -135,7 +135,6 @@ const Contact = () => {
               </div>
               <div className="info-details">
                 <h3>Email</h3>
-                <a href="mailto:irfanishtiaq2k10@gmail.com">irfanishtiaq2k10@gmail.com</a>
                 <a href="mailto:irfanbajwa34@gmail.com">irfanbajwa34@gmail.com</a>
               </div>
             </div>

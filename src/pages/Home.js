@@ -255,8 +255,8 @@ const HeroSection = () => {
           </div>
           <div className="stats-grid">
             <StatCard end={12} suffix="+" label="Projects Completed" delay={0}   />
-            <StatCard end={6}  suffix="+" label="Years Experience"   delay={200} />
-            <StatCard end={12} suffix="+" label="Happy Clients"      delay={400} />
+            <StatCard end={7}  suffix="+" label="Years Experience"   delay={200} />
+            <StatCard end={10} suffix="+" label="Happy Clients"      delay={400} />
           </div>
         </div>
       </section>
