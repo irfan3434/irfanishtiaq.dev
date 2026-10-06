@@ -38,7 +38,7 @@ const Projects = () => {
   };
 
   const frontendProjects = [
-   /* {
+   {
       id: 11,
       title: 'Whitepace – Pixel-Perfect SaaS Marketing Site',
       url: 'https://whitepace-frontend-liard.vercel.app',
@@ -56,7 +56,7 @@ const Projects = () => {
       ],
       stack: ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'Turbopack', 'React Server Components', 'Responsive Design'],
       color: '#4F9CF9'
-    },*/
+    },
     {
       id: 12,
       title: 'Al Taj Al Asna – Bilingual Knowledge Platform (AI)',
