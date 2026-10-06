@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ExternalLink, ChevronDown, ChevronUp, Code, Globe, Database, Server } from 'lucide-react';
 import './Projects.css';
+import { Link } from 'react-router-dom';
 import proImage1 from '../assets/fcec4.webp'
 import proImage2 from '../assets/fceco.webp'
 import proImage3 from '../assets/aqeaw5.webp'
@@ -1036,12 +1037,12 @@ export async function POST(req: NextRequest) {
             <h3>Ready to build something amazing together?</h3>
             <p>I specialize in creating end-to-end solutions that combine beautiful interfaces with robust backend systems.</p>
             <div className="footer-actions">
-              <a href="/contact" className="cta-button primary">
+              <Link to="/contact" className="cta-button primary">
                 Start a Project <ArrowUpRight size={16} />
-              </a>
-              <a href="/about" className="cta-button secondary">
+              </Link>
+              <Link to="/about" className="cta-button secondary">
                 Learn More About Me
-              </a>
+              </Link>
             </div>
           </div>
           <div className="footer-stats">

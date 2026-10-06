@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, ShoppingBag, Layout, Smartphone, Server, Users, BarChart, Database, FileText } from 'lucide-react';
 import './Home.css';
 import profileImage from '../assets/profilepic.webp';
@@ -121,7 +122,8 @@ const HeroSection = () => {
     };
   }, [taglines.length]);
 
-  const handleContactClick = () => { window.location.href = '/Contact'; };
+  const navigate = useNavigate();
+  const handleContactClick = () => navigate('/contact');
 
   return (
     <>
@@ -176,12 +178,12 @@ const HeroSection = () => {
             </p>
 
             <div className="hero-cta-group">
-              <a href="/Projects" className="hero-cta primary-cta">
+              <Link to="/projects" className="hero-cta primary-cta">
                 Explore Projects <ArrowRight size={18} />
-              </a>
-              <a href="/Contact" className="hero-cta secondary-cta">
+              </Link>
+              <Link to="/contact" className="hero-cta secondary-cta">
                 Contact Me
-              </a>
+              </Link>
             </div>
           </div>
         </div>

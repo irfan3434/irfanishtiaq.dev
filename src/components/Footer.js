@@ -70,7 +70,7 @@ const Footer = () => {
       icon: <Linkedin size={25} />,
     },
     {
-      href: "mailto:irfanishtiaq2k10@gmail.com",
+      href: "mailto:irfanbajwa34@gmail.com",
       label: "Email",
       icon: <Mail size={25} />,
     },
@@ -144,7 +144,7 @@ const Footer = () => {
             projects.
           </p>
           <a
-            href="mailto:irfanishtiaq2k10@gmail.com"
+            href="mailto:irfanbajwa34@gmail.com"
             className="footer-contact-button"
           >
             Get in Touch
