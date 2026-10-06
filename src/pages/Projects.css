@@ -75,6 +75,7 @@ body.dark-mode .section-subtitle {
 .projects-title {
     font-size: 2.6rem;
     font-weight: 700;
+    line-height: 1.15;
     color: var(--projects-text);
     margin: 0 0 0.8rem;
     position: relative;
@@ -147,6 +148,7 @@ body.dark-mode .section-toggle {
     justify-content: center;
     gap: 0.5rem;
     position: relative;
+    white-space: nowrap;
 }
 
 body.dark-mode .section-toggle-btn {
@@ -345,6 +347,11 @@ body.dark-mode .backend-card {
 
 body.dark-mode .backend-card .project-number {
     background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+}
+
+/* Keep the card's number badge from covering the code-window dots on backend cards */
+.backend-card .code-header {
+    padding-left: 4.75rem;
 }
 
 /* Showcase Code Styles */
@@ -1203,7 +1210,7 @@ body.dark-mode .project-detail-feature-item {
     }
 
     .projects-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
         margin-top: 1.5rem;
     }
 
@@ -1225,8 +1232,8 @@ body.dark-mode .project-detail-feature-item {
     }
 
     .section-toggle-btn {
-        font-size: 0.85rem;
-        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
     }
 
     .view-toggle-btn {
@@ -1313,18 +1320,26 @@ body.dark-mode .project-detail-feature-item {
         gap: 1rem;
     }
 
+    .projects-title {
+        font-size: 1.85rem;
+    }
+
+    /* Stack the two pills so "Full-Stack / APIs" sits full-width on one line */
     .section-toggle {
-        padding: 0.2rem;
+        padding: 0.3rem;
+        flex-direction: column;
+        gap: 0.35rem;
     }
 
     .section-toggle-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-        height: 36px;
+        width: 100%;
+        padding: 0.55rem 1rem;
+        font-size: 0.9rem;
+        height: 40px;
     }
 
     .section-count {
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .backend-code-container {
